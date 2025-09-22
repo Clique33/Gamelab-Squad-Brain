@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dthpq8lphjw2s"]
+
+[ext_resource type="Script" uid="uid://cxcooxmwrpobc" path="res://scenes/objects/colorful_box.gd" id="1_srngm"]
+[ext_resource type="PackedScene" uid="uid://dc8fcdd3fdnju" path="res://scenes/objects/Interactable.tscn" id="2_trohu"]
+
+[node name="ColorfulBox" type="Polygon2D"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-48, -32, -48, 32, 48, 32, 48, -32)
+uv = PackedVector2Array(-256, -56, -256.268, 8.31715, -185.194, 7.4907, -185.194, -56.1457)
+script = ExtResource("1_srngm")
+interactable_component = ExtResource("2_trohu")
