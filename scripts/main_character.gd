@@ -34,6 +34,5 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func handle_movement_input():
-	# This gets a normalized vector from WASD or arrow keys.
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
