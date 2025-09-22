@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrw43uvim2qy"]
+
+[ext_resource type="PackedScene" uid="uid://dco2f8250mri" path="res://scenes/interfaces/barra_vida.tscn" id="1_4uk6u"]
+[ext_resource type="PackedScene" uid="uid://runryh68mi11" path="res://scenes/interfaces/barra_energia.tscn" id="2_32exs"]
+
+[node name="Teste" type="Node2D"]
+
+[node name="Barra_vida" parent="." instance=ExtResource("1_4uk6u")]
+
+[node name="Barra_energia" parent="." instance=ExtResource("2_32exs")]

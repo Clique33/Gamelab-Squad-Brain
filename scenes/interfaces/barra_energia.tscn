@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://runryh68mi11"]
 
-[ext_resource type="Script" uid="uid://bgl84s1lirgym" path="res://Script/Player.tres.gd" id="1_ffgtb"]
-[ext_resource type="Script" uid="uid://fx7np8twlwsb" path="res://Script/barra_energia.gd" id="1_scviw"]
+[ext_resource type="Script" uid="uid://bgl84s1lirgym" path="res://scripts/Player.tres.gd" id="1_ffgtb"]
+[ext_resource type="Script" uid="uid://fx7np8twlwsb" path="res://scripts/barra_energia.gd" id="1_scviw"]
 
 [sub_resource type="Gradient" id="Gradient_e6poi"]
 offsets = PackedFloat32Array(0)
