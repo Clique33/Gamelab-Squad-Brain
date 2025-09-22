@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgfvhmao3n4so"]
+
+[ext_resource type="Script" uid="uid://ckteraue4qx3v" path="res://scenes/game.gd" id="1_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://rjk6vayeqq6v" path="res://scenes/main_character.tscn" id="2_cpr0p"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_qbsmt")
+main_character = ExtResource("2_cpr0p")
