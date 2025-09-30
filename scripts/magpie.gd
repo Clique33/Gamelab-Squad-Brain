@@ -22,6 +22,14 @@ var health: float = 50.0
 @onready var health_bar: ProgressBar = $HealthBar
 var is_dead: bool = false
 
+var is_attacking: bool = false
+var attack_timer: float = 0.0 # Timer in seconds to damage player
+var attack_duration: float = 0.8
+
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+var knockback_direction: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	add_to_group("Enemy")
@@ -29,33 +37,43 @@ func _ready() -> void:
 	pick_random_direction()
 
 
-func _physics_process(delta: float) -> void:
-	update_health()
-	
+func _physics_process(delta: float) -> void:	
 	die()
 	
-	if is_dead:
+	if is_dead: # Skip animation update
 		return	
 	
-	if swoop:
-		# Calculate the direction towards player
-		direction_to_player = (player.position - position).normalized()
-		# Update position towards the player using the swooping speed
-		velocity = direction_to_player * swoop_speed * delta
+	if knockback_timer > 0.0:
+		velocity = knockback
 		
-		update_animation(direction_to_player, true)
+		knockback_timer -= delta
+		
+		if knockback_timer < 0.0:
+			knockback = Vector2.ZERO
 	else:
-		# Increment the timer by the time since the last frame
-		direction_change_timer += delta 
-			# Pick a new random direstion every 5 sec
-		if direction_change_timer >= direction_change_intervals:
-			pick_random_direction()
-			direction_change_timer = 0
-		# Calculate velocity based on time	
-		velocity = last_direction * speed * delta
-		
-		update_animation(last_direction)
-		
+		if swoop:
+			# Calculate the direction towards player
+			direction_to_player = (player.position - position).normalized()
+			# Update position towards the player using the swooping speed
+			velocity = direction_to_player * swoop_speed * delta
+			
+			attack_melee(delta)
+			
+			update_animation(direction_to_player, true)
+		else:
+			# Increment the timer by the time since the last frame
+			direction_change_timer += delta 
+				# Pick a new random direstion every 5 sec
+			if direction_change_timer >= direction_change_intervals:
+				pick_random_direction()
+				direction_change_timer = 0
+			# Calculate velocity based on time	
+			velocity = last_direction * speed * delta
+			
+			update_animation(last_direction)
+	
+	update_health()
+	
 	move_and_slide()
 	
 	# Check if position has been clamped to a boundary
@@ -77,11 +95,13 @@ func pick_random_direction() -> void:
 	
 	last_direction = new_direction # Update last direction
 
+
 func update_animation(direction: Vector2, swooping: bool = false) -> void:
 	if player_in_range and swooping:
 		animated_sprite_2d.play("fight")
 		
 		animated_sprite_2d.flip_h = direction.x < 0
+		
 		animated_sprite_2d.flip_v = false
 		
 		return
@@ -106,24 +126,38 @@ func update_animation(direction: Vector2, swooping: bool = false) -> void:
 	return
 
 
+func attack_melee(delta: float) -> void:
+	if is_attacking:
+		attack_timer += delta
+	
+	if attack_timer >= attack_duration:
+		if player_in_range:
+			player.health -= 10
+			
+			knockback_direction = (player.global_position - global_position).normalized()
+		
+			player.apply_knockback(knockback_direction, 100, 0.5)
+		
+		attack_timer = 0.0
+
+
 func _on_magpie_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = true
 		
-		print("swooping")
+		is_attacking = true
 		
 		swoop_speed = 0
 		 
-		health -= 10
 		
 
 func _on_magpie_hitbox_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = false
 		
-		update_animation(last_direction)
+		is_attacking = false
 		
-		print("player exited the hitbox")
+		update_animation(last_direction)
 		
 		swoop_speed = 3000.0
 
@@ -144,7 +178,7 @@ func _on_territory_body_exited(body: Node2D) -> void:
 		pick_random_direction()
 		
 		update_animation(last_direction)
-		
+
 
 func update_health() -> void:
 	health_bar.value = health
@@ -160,3 +194,9 @@ func die() -> void:
 		is_dead = true
 
 		queue_free()
+
+
+func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
+	knockback = direction * force
+	
+	knockback_timer = knockback_duration
