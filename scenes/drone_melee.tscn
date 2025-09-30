@@ -1,0 +1,218 @@
+[gd_scene load_steps=29 format=3 uid="uid://2gsqbp63mciw"]
+
+[ext_resource type="Script" uid="uid://j734hducc7g2" path="res://scenes/drone_melee.gd" id="1_dcoha"]
+[ext_resource type="Texture2D" uid="uid://4innee08rhoc" path="res://assets/enemy/Enemy drones/elec_drone_atk.png" id="2_dcoha"]
+[ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/enemy/Enemy drones/elec_drone_death.png" id="2_v52ds"]
+[ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/enemy/Enemy drones/elec_drone_charging.png" id="3_v52ds"]
+[ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/enemy/Enemy drones/elec_drone_idle.png" id="4_dcoha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7juch"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdhtt"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgyfu"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhae1"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44fp1"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqj52"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ddt"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtcfc"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cut1"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibfb8"]
+atlas = ExtResource("2_dcoha")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b8rt"]
+atlas = ExtResource("2_v52ds")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn3qh"]
+atlas = ExtResource("2_v52ds")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6tio"]
+atlas = ExtResource("3_v52ds")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_durx4"]
+atlas = ExtResource("3_v52ds")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w0as"]
+atlas = ExtResource("3_v52ds")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdgt6"]
+atlas = ExtResource("3_v52ds")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v52ds"]
+atlas = ExtResource("4_dcoha")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cichb"]
+atlas = ExtResource("4_dcoha")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq2wf"]
+atlas = ExtResource("4_dcoha")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mucbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7juch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdhtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgyfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhae1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44fp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqj52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4ddt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtcfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cut1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibfb8")
+}],
+"loop": false,
+"name": &"drone_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b8rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn3qh")
+}],
+"loop": false,
+"name": &"drone_die",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6tio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_durx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w0as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdgt6")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v52ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cichb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq2wf")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcoha"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7d178"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnmnu"]
+radius = 38.0
+
+[node name="drone_melee" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dcoha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.875, 0.875)
+sprite_frames = SubResource("SpriteFrames_mucbb")
+animation = &"drone_die"
+autoplay = "move_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dcoha")
+
+[node name="MagpieHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagpieHitbox"]
+shape = SubResource("CircleShape2D_7d178")
+
+[node name="Territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
+shape = SubResource("CircleShape2D_lnmnu")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.721569, 1, 0.223529, 1)
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = -10.0
+max_value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="MagpieHitbox" to="." method="_on_magpie_hitbox_body_entered"]
+[connection signal="body_exited" from="MagpieHitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="Territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="Territory" to="." method="_on_territory_body_exited"]

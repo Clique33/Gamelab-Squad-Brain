@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl1xrgfncrbje"
-path="res://.godot/imported/forestPath_.png-a1e4b18990c74ab2870dfcd0d4554b87.ctex"
+uid="uid://bev4juryhp0bn"
+path="res://.godot/imported/elec_drone_death.png-08c66fa8b9fc097c5c3b1b2b688ba3f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/forest_/forestPath_.png"
-dest_files=["res://.godot/imported/forestPath_.png-a1e4b18990c74ab2870dfcd0d4554b87.ctex"]
+source_file="res://assets/enemy/Enemy drones/elec_drone_death.png"
+dest_files=["res://.godot/imported/elec_drone_death.png-08c66fa8b9fc097c5c3b1b2b688ba3f8.ctex"]
 
 [params]
 

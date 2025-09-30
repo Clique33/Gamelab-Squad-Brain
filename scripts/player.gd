@@ -109,7 +109,7 @@ func attack_melee(delta: float) -> void:
 			
 			knockback_direction = (enemy.global_position - global_position).normalized()
 		
-			enemy.apply_knockback(knockback_direction, 100, 0.5)
+			enemy.apply_knockback(knockback_direction, 75.0, 0.5)
 			
 		is_attacking = false
 		

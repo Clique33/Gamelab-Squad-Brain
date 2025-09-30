@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://887b5klmdkak"
-path="res://.godot/imported/forest_ [fencesAndWalls].png-43446bb090036b53d9f04f2535c80edc.ctex"
+uid="uid://dv4a7s5loimcr"
+path="res://.godot/imported/magpie.png-4894e14c7ccdeb52d21f4ce2daabc47c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/forest_/forest_ [fencesAndWalls].png"
-dest_files=["res://.godot/imported/forest_ [fencesAndWalls].png-43446bb090036b53d9f04f2535c80edc.ctex"]
+source_file="res://assets/enemy/magpie.png"
+dest_files=["res://.godot/imported/magpie.png-4894e14c7ccdeb52d21f4ce2daabc47c.ctex"]
 
 [params]
 

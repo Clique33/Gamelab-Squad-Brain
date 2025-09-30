@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b72kyc0dcbcye"
-path="res://.godot/imported/forest_ [fountain].png-805b231c3655ad9064418b630611e561.ctex"
+uid="uid://887b5klmdkak"
+path="res://.godot/imported/forest_ [fencesAndWalls].png-6ffb1511ada1489440678a43653b0df3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/forest_/forest_ [fountain].png"
-dest_files=["res://.godot/imported/forest_ [fountain].png-805b231c3655ad9064418b630611e561.ctex"]
+source_file="res://assets/tiles/forest_/forest_ [fencesAndWalls].png"
+dest_files=["res://.godot/imported/forest_ [fencesAndWalls].png-6ffb1511ada1489440678a43653b0df3.ctex"]
 
 [params]
 

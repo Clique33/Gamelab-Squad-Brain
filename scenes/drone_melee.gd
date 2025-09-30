@@ -8,8 +8,8 @@ var direction_change_timer: float = 0.0
 var direction_change_intervals: float = 3.0 # seconds
 
 var old_position: Vector2 = Vector2.ZERO
-var min_position: Vector2 = Vector2(250.0, 80.0)
-var max_position: Vector2 = Vector2(450.0, 230.0)
+var min_position: Vector2 = Vector2(250.0, 415.0)
+var max_position: Vector2 = Vector2(450.0, 575.0)
 
 var swoop_speed: float = 3000.0
 var swoop: bool = false
@@ -24,7 +24,7 @@ var is_dead: bool = false
 
 var is_attacking: bool = false
 var attack_timer: float = 0.0 # Timer in seconds to damage player
-var attack_duration: float = 0.8
+var attack_duration: float = 0.5
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
@@ -98,7 +98,7 @@ func pick_random_direction() -> void:
 
 func update_animation(direction: Vector2, swooping: bool = false) -> void:
 	if player_in_range and swooping:
-		animated_sprite_2d.play("fight")
+		animated_sprite_2d.play("drone_attack")
 		
 		animated_sprite_2d.flip_h = direction.x < 0
 		
@@ -116,7 +116,7 @@ func update_animation(direction: Vector2, swooping: bool = false) -> void:
 		animated_sprite_2d.play("move_up")
 		
 		# Flip vertically down
-		animated_sprite_2d.flip_v = true
+		animated_sprite_2d.flip_v = false
 	elif direction.x != 0:
 		animated_sprite_2d.play("move_right")
 		
@@ -192,9 +192,13 @@ func update_health() -> void:
 func die() -> void:
 	if health <= 0 and not is_dead:
 		is_dead = true
-		
-		queue_free()
 
+		animated_sprite_2d.play("drone_die")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == "drone_die":
+		queue_free()
 
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction * force

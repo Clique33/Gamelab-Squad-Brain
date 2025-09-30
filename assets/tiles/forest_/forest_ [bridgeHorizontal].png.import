@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cct5v5m7gtxxu"
-path="res://.godot/imported/forest_.png-35f8ebfcdf21c114720fd8856a81a7ac.ctex"
+uid="uid://dy03r1k6gylo5"
+path="res://.godot/imported/forest_ [bridgeHorizontal].png-81627dc006fed4555e075bac7d0fe038.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/forest_/forest_.png"
-dest_files=["res://.godot/imported/forest_.png-35f8ebfcdf21c114720fd8856a81a7ac.ctex"]
+source_file="res://assets/tiles/forest_/forest_ [bridgeHorizontal].png"
+dest_files=["res://.godot/imported/forest_ [bridgeHorizontal].png-81627dc006fed4555e075bac7d0fe038.ctex"]
 
 [params]
 
