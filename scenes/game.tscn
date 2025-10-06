@@ -337,6 +337,7 @@ position = Vector2(369, 489)
 position = Vector2(353, 303)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/test"]
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_right = 1150
