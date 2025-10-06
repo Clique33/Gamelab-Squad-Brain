@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbha5wmrhfrrw"]
+
+[ext_resource type="Script" uid="uid://cvrbvhvgmskcd" path="res://scenes/components/interactable.gd" id="1_ihtmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihtmk"]
+radius = 50.0
+
+[node name="Interactable" type="Node2D"]
+script = ExtResource("1_ihtmk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ihtmk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
