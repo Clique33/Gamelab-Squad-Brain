@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cloe3bkj1rmg7"
-path="res://.godot/imported/arm_cannon.png-c3d4a923f445828f962dd67d4756b83d.ctex"
+path="res://.godot/imported/arm_cannon.png-0ac7233a05984cce0f67cf10587aaafe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Player/conceitos/Scifi/arm_cannon.png"
-dest_files=["res://.godot/imported/arm_cannon.png-c3d4a923f445828f962dd67d4756b83d.ctex"]
+source_file="res://Assets/Player/arm_cannon.png"
+dest_files=["res://.godot/imported/arm_cannon.png-0ac7233a05984cce0f67cf10587aaafe.ctex"]
 
 [params]
 

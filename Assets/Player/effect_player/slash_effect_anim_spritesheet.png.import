@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1mdpjnghaoet"
-path="res://.godot/imported/forest_ [bridgeVertical].png-3fb8eb36be24e707da158cf394f676b8.ctex"
+uid="uid://bkctw85hhktkk"
+path="res://.godot/imported/slash_effect_anim_spritesheet.png-85d66820768f29edfcc966cef97d4f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tiles/forest_/forest_ [bridgeVertical].png"
-dest_files=["res://.godot/imported/forest_ [bridgeVertical].png-3fb8eb36be24e707da158cf394f676b8.ctex"]
+source_file="res://Assets/Player/effect_player/slash_effect_anim_spritesheet.png"
+dest_files=["res://.godot/imported/slash_effect_anim_spritesheet.png-85d66820768f29edfcc966cef97d4f30.ctex"]
 
 [params]
 
