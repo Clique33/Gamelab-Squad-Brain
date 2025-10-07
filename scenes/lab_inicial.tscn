@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjiswug3vccev"]
+
+[ext_resource type="Texture2D" uid="uid://bt6kqohvqflyr" path="res://Assets/UI/tutorial-lab.png" id="1_nco72"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osoe6"]
+texture = ExtResource("1_nco72")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.3205, 254.753, -7.3205, 183.013, 193.261, 181.548, 200.582, 156.659, 260.61, 155.195, 266.466, -260.61, -260.61, -265.002, -257.682, 256.218)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256.218, 156.659, -196.189, 156.659, -191.797, 193.261, 0, 190.333, 7.3205, 259.146, 260.61, 257.682, 262.074, -263.538, -260.61, -259.146)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.5, -261, 8.5, -251, 56.5, -250, 69.5, -236, 89.5, -232, 90.5, -182, -147.5, -179, -156.5, -130, -152.5, -33, -94.5, -26, -85.5, -1, -29.5, -4, -20.5, -35, 16.5, -36, 19.5, 38, 70.5, 45, 70.5, 67, -168.5, 66, -188.5, 106, -187.5, 208, -216.5, 211, -220.5, 227, -261.5, 229, -259.5, 275, 259.5, 269, 276.5, -266)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, -257, -13.5, -252, -62.5, -252, -66.5, -240, -99.5, -240, -99.5, -176, 130.5, -180, 150.5, -180, 153.5, -135, 155.5, -45, 151.5, -33, 101.5, -32, 97.5, -9, 38.5, -7, 22.5, -30, -27.5, -34, -32.5, 37, -75.5, 44, -75.5, 66, 166.5, 68, 184.5, 103, 182.5, 195, 180.5, 208, 212.5, 209, 212.5, 226, 259.5, 227, 261.5, 263, -270.5, 262, -269.5, -261)
+
+[sub_resource type="TileSet" id="TileSet_skxu7"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_osoe6")
+
+[node name="lab_inicial" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 240, 255, 239, 255, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 239, 255, 0, 0, 1, 0, 0, 0, 0, 0, 240, 255, 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 16, 0, 15, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_skxu7")
