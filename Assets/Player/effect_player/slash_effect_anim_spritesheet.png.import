@@ -2,24 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://887b5klmdkak"
-path="res://.godot/imported/forest_ [fencesAndWalls].png-6b6ca22643cc80c24271b9e71ae1782e.ctex"
+uid="uid://bkctw85hhktkk"
+path="res://.godot/imported/slash_effect_anim_spritesheet.png-85d66820768f29edfcc966cef97d4f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tiles/forest_/forest_ [fencesAndWalls].png"
-dest_files=["res://.godot/imported/forest_ [fencesAndWalls].png-6b6ca22643cc80c24271b9e71ae1782e.ctex"]
+source_file="res://Assets/Player/effect_player/slash_effect_anim_spritesheet.png"
+dest_files=["res://.godot/imported/slash_effect_anim_spritesheet.png-85d66820768f29edfcc966cef97d4f30.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
-compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -27,10 +25,6 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/channel_remap/red=0
-process/channel_remap/green=1
-process/channel_remap/blue=2
-process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -22,12 +22,14 @@ https://ajslearninglab.itch.io/boganworld
   
 https://boldoboldin.itch.io/enemy-drones-for-a-top-down-game
 
-- Pixel 10.mp3
+player_robot
 
-https://alkakrab.itch.io/free-12-tracks-pixel-rpg-game-music-pack
+https://fartfish.itch.io/scifi-character-pack
 
-- CyberpunkCraftpixPixel.otf
+sword and effect slash
 
-https://free-game-assets.itch.io/free-gui-for-cyberpunk-pixel-art
+https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack
+
+
 
 Asset mapa laboratório inicial gerado André Luiz Souza dos Santos mim no Google Gemini, com licença de uso livre para fins pessoal e comercial. 

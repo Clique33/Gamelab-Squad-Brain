@@ -1,14 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://dt0c2cqa4cj7p"]
 
-[ext_resource type="PackedScene" uid="uid://vf6du73jx0qq" path="res://scene/character/character.tscn" id="1_hipg2"]
-[ext_resource type="Script" uid="uid://0wdjd14dfa0o" path="res://scene/character/Player/Player.gd" id="1_ydrc1"]
-[ext_resource type="Script" uid="uid://bhhw0phjluo1l" path="res://scene/character/Player/FiniteStateMachine.gd" id="3_eb0w2"]
-[ext_resource type="Texture2D" uid="uid://dags36jvx7a7p" path="res://Art/Player/conceitos/Scifi/hurt.png" id="4_ynmp5"]
-[ext_resource type="Texture2D" uid="uid://cfdrdlofc321u" path="res://Art/Player/weapon_sword_1.png" id="5_l38hm"]
-[ext_resource type="Texture2D" uid="uid://flkg1morayxd" path="res://Art/Player/conceitos/Scifi/idle.png" id="5_ynmp5"]
-[ext_resource type="Texture2D" uid="uid://dfjxbbk51sxjo" path="res://Art/Player/conceitos/Scifi/run.png" id="6_hh1ve"]
-[ext_resource type="Script" uid="uid://jgo6tlb7be2e" path="res://Hitbox.gd" id="7_l38hm"]
-[ext_resource type="Texture2D" uid="uid://pdkx6xhpriu5" path="res://Art/effect/slash_effect_anim_spritesheet.png" id="7_ynmp5"]
+[ext_resource type="PackedScene" uid="uid://vf6du73jx0qq" path="res://scenes/character/character.tscn" id="1_hipg2"]
+[ext_resource type="Script" uid="uid://0wdjd14dfa0o" path="res://scenes/character/Player/Player.gd" id="1_ydrc1"]
+[ext_resource type="Script" uid="uid://bhhw0phjluo1l" path="res://scenes/character/Player/FiniteStateMachine.gd" id="3_eb0w2"]
+[ext_resource type="Texture2D" uid="uid://dags36jvx7a7p" path="res://Assets/Player/hurt.png" id="4_ynmp5"]
+[ext_resource type="Texture2D" uid="uid://cfdrdlofc321u" path="res://Assets/Player/weapon_sword_1.png" id="5_l38hm"]
+[ext_resource type="Texture2D" uid="uid://flkg1morayxd" path="res://Assets/Player/idle.png" id="5_ynmp5"]
+[ext_resource type="Texture2D" uid="uid://dfjxbbk51sxjo" path="res://Assets/Player/run.png" id="6_hh1ve"]
+[ext_resource type="Texture2D" uid="uid://bkctw85hhktkk" path="res://Assets/Player/effect_player/slash_effect_anim_spritesheet.png" id="8_6oenj"]
+[ext_resource type="Script" uid="uid://cqeecuq2hjw1q" path="res://scripts/Hitbox.gd" id="8_hmjnl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh1ve"]
 atlas = ExtResource("4_ynmp5")
@@ -513,8 +513,7 @@ offset = Vector2(5, -4)
 [node name="Hitbox" type="Area2D" parent="Sword/Node2D/Sprite2D" index="0"]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("7_l38hm")
-metadata/_custom_type_script = "uid://jgo6tlb7be2e"
+script = ExtResource("8_hmjnl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/Sprite2D/Hitbox" index="0"]
 position = Vector2(6.36398, -4.94973)
@@ -524,7 +523,7 @@ shape = SubResource("CapsuleShape2D_ynmp5")
 [node name="SlashSprite" type="Sprite2D" parent="Sword" index="1"]
 visible = false
 position = Vector2(18, 0)
-texture = ExtResource("7_ynmp5")
+texture = ExtResource("8_6oenj")
 hframes = 3
 
 [node name="SwordAnimationPlayer" type="AnimationPlayer" parent="Sword" index="2"]
