@@ -22,5 +22,14 @@ https://ajslearninglab.itch.io/boganworld
   
 https://boldoboldin.itch.io/enemy-drones-for-a-top-down-game
 
+player_robot
+
+https://fartfish.itch.io/scifi-character-pack
+
+sword and effect slash
+
+https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack
+
+
 
 Asset mapa laboratório inicial gerado André Luiz Souza dos Santos mim no Google Gemini, com licença de uso livre para fins pessoal e comercial. 
