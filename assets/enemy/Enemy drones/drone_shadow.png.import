@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fbu6qdxrj8ml"
-path="res://.godot/imported/drone_shadow.png-6eb365d74f61c9587607788f2892b39b.ctex"
+path="res://.godot/imported/drone_shadow.png-42e006ba32c79de688dcea6149157ffd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy/Enemy drones/drone_shadow.png"
-dest_files=["res://.godot/imported/drone_shadow.png-6eb365d74f61c9587607788f2892b39b.ctex"]
+source_file="res://assets/enemy/Enemy drones/drone_shadow.png"
+dest_files=["res://.godot/imported/drone_shadow.png-42e006ba32c79de688dcea6149157ffd.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
-compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -27,10 +25,6 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/channel_remap/red=0
-process/channel_remap/green=1
-process/channel_remap/blue=2
-process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
