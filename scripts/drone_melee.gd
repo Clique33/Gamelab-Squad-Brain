@@ -30,6 +30,14 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_direction: Vector2 = Vector2.ZERO
 
+signal damaged(amount)
+signal attacked(cost)
+
+func apply_damage(amount: int):
+	emit_signal("damaged", amount)
+
+func perform_attack(cost: int):
+	emit_signal("attacked", cost)
 
 func _ready() -> void:
 	add_to_group("Enemy")
@@ -133,7 +141,7 @@ func attack_melee(delta: float) -> void:
 	if attack_timer >= attack_duration:
 		if player_in_range:
 			player.health -= 10
-			
+			emit_signal("damaged", 10)
 			knockback_direction = (player.global_position - global_position).normalized()
 		
 			player.apply_knockback(knockback_direction, 100, 0.5)

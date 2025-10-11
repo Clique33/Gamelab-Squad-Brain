@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://k1ropq0cpja3"]
+
+[ext_resource type="Script" uid="uid://mippqhbs0xft" path="res://scripts/hp_hud.gd" id="1_frt4s"]
+
+[sub_resource type="Gradient" id="Gradient_hf110"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_frt4s"]
+gradient = SubResource("Gradient_hf110")
+width = 200
+height = 30
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_n42c7"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_70rmd"]
+gradient = SubResource("Gradient_n42c7")
+width = 200
+height = 30
+fill_from = Vector2(0, 0.0299145)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kdqo8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfayn"]
+gradient = SubResource("Gradient_kdqo8")
+width = 200
+height = 15
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_s3tin"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bjr08"]
+gradient = SubResource("Gradient_s3tin")
+width = 200
+height = 15
+
+[node name="hp_hud" type="Node2D"]
+script = ExtResource("1_frt4s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hp_bar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_right = 199.0
+offset_bottom = 24.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_frt4s")
+texture_progress = SubResource("GradientTexture2D_70rmd")
+
+[node name="energy_bar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 45.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_pfayn")
+texture_progress = SubResource("GradientTexture2D_bjr08")
