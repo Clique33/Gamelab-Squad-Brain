@@ -482,6 +482,7 @@ _data = {
 }
 
 [node name="Player" instance=ExtResource("1_hipg2")]
+position = Vector2(74, 62)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ydrc1")

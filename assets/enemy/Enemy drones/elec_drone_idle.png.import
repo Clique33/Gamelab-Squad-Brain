@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eqiqnfv5uk2g"
-path="res://.godot/imported/elec_drone_idle.png-4778965deef0768d64d49c78d43d6cc5.ctex"
+path="res://.godot/imported/elec_drone_idle.png-a5b4359e5282dde763b502f034772ff3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy/Enemy drones/elec_drone_idle.png"
-dest_files=["res://.godot/imported/elec_drone_idle.png-4778965deef0768d64d49c78d43d6cc5.ctex"]
+source_file="res://assets/enemy/Enemy drones/elec_drone_idle.png"
+dest_files=["res://.godot/imported/elec_drone_idle.png-a5b4359e5282dde763b502f034772ff3.ctex"]
 
 [params]
 
