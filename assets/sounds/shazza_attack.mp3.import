@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cx5p3osw7ex1q"
-path="res://.godot/imported/shazza_attack.mp3-390bbffcdfe5a2eedb2ea4bc87e6ee7e.mp3str"
+path="res://.godot/imported/shazza_attack.mp3-1d2581ebd258fb3326b1b36df7040a01.mp3str"
 
 [deps]
 
-source_file="res://Assets/sounds/shazza_attack.mp3"
-dest_files=["res://.godot/imported/shazza_attack.mp3-390bbffcdfe5a2eedb2ea4bc87e6ee7e.mp3str"]
+source_file="res://assets/sounds/shazza_attack.mp3"
+dest_files=["res://.godot/imported/shazza_attack.mp3-1d2581ebd258fb3326b1b36df7040a01.mp3str"]
 
 [params]
 

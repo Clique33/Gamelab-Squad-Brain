@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b72kyc0dcbcye"
-path="res://.godot/imported/forest_ [fountain].png-987506dbdd89d4c11649c3057122b8ae.ctex"
+path="res://.godot/imported/forest_ [fountain].png-fd4a4499dc9b03f78146849491d0dc15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tiles/forest_/forest_ [fountain].png"
-dest_files=["res://.godot/imported/forest_ [fountain].png-987506dbdd89d4c11649c3057122b8ae.ctex"]
+source_file="res://assets/tiles/forest_/forest_ [fountain].png"
+dest_files=["res://.godot/imported/forest_ [fountain].png-fd4a4499dc9b03f78146849491d0dc15.ctex"]
 
 [params]
 
