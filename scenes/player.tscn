@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://mdocp85nn4l6"]
 
-[ext_resource type="Texture2D" uid="uid://bs2aoytl33ntq" path="res://assets/character/bogan_sprites.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bs2aoytl33ntq" path="res://Assets/character/bogan_sprites.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bjm6q18wihdhh" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
