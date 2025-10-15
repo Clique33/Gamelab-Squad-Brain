@@ -42,11 +42,12 @@ func _type_text(text: String):
 
 func _close_dialog():
 	is_typing = true
-	tween = get_tree().create_tween()
-	tween.tween_property(self,"scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BACK)
-	await tween.finished
+	#tween = get_tree().create_tween()
+	#tween.tween_property(self,"scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BACK)
+	#await tween.finished
 	dialog_finished.emit()
 	queue_free()
+	
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") and not is_typing:
@@ -58,9 +59,12 @@ func _unhandled_input(event):
 				current_index += 1
 				show_text()
 			else:
+				
 				_close_dialog()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_dialog_finished() -> void:
+	
+	get_tree().paused = false
+	
+	get_tree().change_scene_to_file("res://scenes/world.tscn")

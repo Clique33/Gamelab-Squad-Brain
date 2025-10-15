@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjiswug3vccev"]
+[gd_scene load_steps=9 format=3 uid="uid://bjiswug3vccev"]
 
-[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://Assets/UI/tutorial-lab.png" id="1_nco72"]
+[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://assets/ui/tutorial-lab.png" id="1_nco72"]
 [ext_resource type="Script" uid="uid://bc8wv8flx3cbe" path="res://scripts/hit_pop.gd" id="2_nbyx5"]
-[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="3_pbvho"]
+[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player_human.tscn" id="3_pbvho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbvho"]
+bg_color = Color(0.0392157, 0.0352941, 0.0980392, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osoe6"]
 texture = ExtResource("1_nco72")
@@ -28,9 +31,22 @@ size = Vector2(79, 10)
 
 [node name="lab_inicial" type="Node2D"]
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = -839.0
+offset_top = -738.0
+offset_right = 861.0
+offset_bottom = 962.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbvho")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 240, 255, 239, 255, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 239, 255, 0, 0, 1, 0, 0, 0, 0, 0, 240, 255, 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 16, 0, 15, 0, 0, 0, 1, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_skxu7")
+
+[node name="Player" parent="." instance=ExtResource("3_pbvho")]
+position = Vector2(8, 451)
+scale = Vector2(8, 8)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="pop_up" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -47,10 +63,5 @@ dialog_texts = Array[String](["Finalmente!", "Com esse ultimo teste o protótipo
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pop_up/hit_pop"]
 position = Vector2(7, -100)
 shape = SubResource("RectangleShape2D_oq8ra")
-
-[node name="Player" parent="." instance=ExtResource("3_pbvho")]
-position = Vector2(8, 451)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [connection signal="body_entered" from="pop_up/hit_pop" to="pop_up/hit_pop" method="_on_body_entered"]
