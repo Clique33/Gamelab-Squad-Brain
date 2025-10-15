@@ -482,6 +482,8 @@ _data = {
 radius = 150.0
 
 [node name="DroneKami" instance=ExtResource("1_egni8")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_h11kn")
 
 [node name="FiniteStateMachine" parent="." index="0"]

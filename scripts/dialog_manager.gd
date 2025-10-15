@@ -18,13 +18,14 @@ func start_dialog(texts: Array[String], dialog_position: Vector2):
 		is_showing_dialog = true
 		
 		dialog_box.dialog_finished.connect(_on_dialog_finished)
+		
 
 func _on_dialog_finished():
 	is_showing_dialog = false
 	if dialog_box:
 		dialog_box.queue_free()
 		dialog_box = null
-		
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

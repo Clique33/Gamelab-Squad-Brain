@@ -8,8 +8,8 @@ var direction_change_timer: float = 0.0
 var direction_change_intervals: float = 3.0 # seconds
 
 var old_position: Vector2 = Vector2.ZERO
-var min_position: Vector2 = Vector2(250.0, 80.0)
-var max_position: Vector2 = Vector2(450.0, 230.0)
+@export var max_position: Vector2
+@export var min_position: Vector2
 
 var swoop_speed: float = 3000.0
 var swoop: bool = false
