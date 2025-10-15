@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bok5k5tu748p2"
-path="res://.godot/imported/tutorial-lab.png-bed1d8163e69bf2ec1b43b7ca95cfb44.ctex"
+uid="uid://bio283xr8vhql"
+path="res://.godot/imported/spritesheet.png-055be1523cb737ff7e00f20302a528ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/tutorial-lab.png"
-dest_files=["res://.godot/imported/tutorial-lab.png-bed1d8163e69bf2ec1b43b7ca95cfb44.ctex"]
+source_file="res://assets/enemy/Enemy drones/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-055be1523cb737ff7e00f20302a528ca.ctex"]
 
 [params]
 

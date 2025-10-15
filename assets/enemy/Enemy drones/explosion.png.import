@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bok5k5tu748p2"
-path="res://.godot/imported/tutorial-lab.png-bed1d8163e69bf2ec1b43b7ca95cfb44.ctex"
+uid="uid://c30hnkfqmylsy"
+path="res://.godot/imported/explosion.png-03a6ceaffeab27e9411c50f63e39aa33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/tutorial-lab.png"
-dest_files=["res://.godot/imported/tutorial-lab.png-bed1d8163e69bf2ec1b43b7ca95cfb44.ctex"]
+source_file="res://assets/enemy/Enemy drones/explosion.png"
+dest_files=["res://.godot/imported/explosion.png-03a6ceaffeab27e9411c50f63e39aa33.ctex"]
 
 [params]
 
