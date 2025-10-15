@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8t7x8itcujy2"]
+
+[ext_resource type="PackedScene" uid="uid://vf6du73jx0qq" path="res://scene/character/character.tscn" id="1_lowmc"]
+[ext_resource type="Script" uid="uid://b4g4us8isy3q5" path="res://scene/character/Enemies/enemy.gd" id="2_6tvu6"]
+
+[node name="Enemy" instance=ExtResource("1_lowmc")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_6tvu6")
+
+[node name="PathTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]
