@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8sh65td6l74f"]
+
+[ext_resource type="Script" uid="uid://bb8p8egs21yl5" path="res://scripts/dialog_box.gd" id="1_tihiy"]
+[ext_resource type="Texture2D" uid="uid://1ytm0cmrp1k5" path="res://Assets/UI/Dialog_texture.png" id="2_df88m"]
+
+[node name="dialog_box" type="MarginContainer"]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.447
+anchor_top = 0.452
+anchor_right = 0.602
+anchor_bottom = 0.548
+offset_left = 41.056
+offset_top = 11.104
+offset_right = -41.5041
+offset_bottom = -11.104
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tihiy")
+
+[node name="bg_dialog_box" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_df88m")
+region_rect = Rect2(13.2867, 4.65859, 1655.28, 818.208)
+
+[node name="text_container" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="text_label" type="Label" parent="text_container"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="indicator" type="TextureRect" parent="."]
+layout_mode = 2
