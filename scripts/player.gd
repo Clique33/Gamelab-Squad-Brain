@@ -7,13 +7,15 @@ var last_direction: Vector2 = Vector2.ZERO
 
 var enemy_in_range = false
 
-var health: float = 100.0
+@onready var hp_hud: Node2D = $"../hp_hud"
+@export var health: float = 100.0
 @onready var health_bar: ProgressBar = $HealthBar
 var is_dead: bool = false
 
+@export var attack_basic: float
 var is_attacking: bool = false
 var attack_timer: float = 0.0
-var attack_duration: float = 0.5 # Time in seconds
+@export var attack_duration: float = 0.4 # Time in seconds
 var enemy: Node2D = null
 
 var knockback: Vector2 = Vector2.ZERO
@@ -49,8 +51,6 @@ func _physics_process(delta: float) -> void:
 		
 		if direction != Vector2.ZERO:
 			last_direction = direction
-	
-	update_health()
 	
 	attack_melee(delta)
 	
@@ -105,7 +105,7 @@ func attack_melee(delta: float) -> void:
 	
 	if attack_timer >= attack_duration:
 		if enemy_in_range:
-			enemy.health -= 10
+			enemy.update_health(attack_basic)
 			
 			knockback_direction = (enemy.global_position - global_position).normalized()
 		
@@ -135,15 +135,10 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 		enemy = null
 
 
-func update_health() -> void:
-	# Update healthbar
+func update_health(value: int) -> void:
+	health += value
 	
-	health_bar.value = health
-	
-	if health >= 100:
-		health_bar.visible = false
-	else:
-		health_bar.visible = true
+	hp_hud.hp_bar_update(health)
 
 
 func die() -> void:

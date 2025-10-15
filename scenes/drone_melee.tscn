@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://2gsqbp63mciw"]
+[gd_scene load_steps=37 format=3 uid="uid://2gsqbp63mciw"]
 
 [ext_resource type="Script" uid="uid://j734hducc7g2" path="res://scripts/drone_melee.gd" id="1_dcoha"]
-[ext_resource type="Texture2D" uid="uid://4innee08rhoc" path="res://Assets/enemy/Enemy drones/elec_drone_atk.png" id="2_dcoha"]
-[ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://Assets/enemy/Enemy drones/elec_drone_death.png" id="2_v52ds"]
-[ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://Assets/enemy/Enemy drones/elec_drone_charging.png" id="3_v52ds"]
-[ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://Assets/enemy/Enemy drones/elec_drone_idle.png" id="4_dcoha"]
+[ext_resource type="Texture2D" uid="uid://4innee08rhoc" path="res://assets/enemy/Enemy drones/elec_drone_atk.png" id="2_dcoha"]
+[ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/enemy/Enemy drones/elec_drone_death.png" id="2_v52ds"]
+[ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/enemy/Enemy drones/elec_drone_charging.png" id="3_v52ds"]
+[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/Enemy drones/explosion.png" id="4_7juch"]
+[ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/enemy/Enemy drones/elec_drone_idle.png" id="4_dcoha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7juch"]
 atlas = ExtResource("2_dcoha")
@@ -53,6 +54,34 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn3qh"]
 atlas = ExtResource("2_v52ds")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlj3"]
+atlas = ExtResource("4_7juch")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rswqi"]
+atlas = ExtResource("4_7juch")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a583"]
+atlas = ExtResource("4_7juch")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofu4"]
+atlas = ExtResource("4_7juch")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ficah"]
+atlas = ExtResource("4_7juch")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13bjw"]
+atlas = ExtResource("4_7juch")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7hrd"]
+atlas = ExtResource("4_7juch")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6tio"]
 atlas = ExtResource("3_v52ds")
@@ -125,10 +154,31 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xn3qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rswqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a583")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ficah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13bjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7hrd")
 }],
 "loop": false,
 "name": &"drone_die",
-"speed": 3.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,7 +213,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcoha"]
-radius = 5.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7d178"]
 radius = 7.0
@@ -171,30 +221,35 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnmnu"]
 radius = 38.0
 
-[node name="drone_melee" type="CharacterBody2D"]
+[node name="DroneMelee" type="CharacterBody2D"]
 z_index = 2
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_dcoha")
+health = 50.0
+attack_basic = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.875, 0.875)
 sprite_frames = SubResource("SpriteFrames_mucbb")
-animation = &"drone_die"
+animation = &"move_right"
 autoplay = "move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_dcoha")
 
-[node name="MagpieHitbox" type="Area2D" parent="."]
+[node name="DroneMeleeHitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MagpieHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroneMeleeHitbox"]
 shape = SubResource("CircleShape2D_7d178")
 
 [node name="Territory" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
@@ -211,8 +266,10 @@ max_value = 50.0
 fill_mode = 1
 show_percentage = false
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="MagpieHitbox" to="." method="_on_magpie_hitbox_body_entered"]
-[connection signal="body_exited" from="MagpieHitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_entered"]
+[connection signal="body_exited" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_exited"]
 [connection signal="body_entered" from="Territory" to="." method="_on_territory_body_entered"]
 [connection signal="body_exited" from="Territory" to="." method="_on_territory_body_exited"]

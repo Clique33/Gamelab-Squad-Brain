@@ -18,38 +18,34 @@ var direction_to_player: Vector2 = Vector2.ZERO
 var player = null
 var player_in_range = false
 
-var health: float = 10.0
+@export var health: float
 @onready var health_bar: ProgressBar = $HealthBar
-var is_dead: bool = false
 
+@export var attack_basic: float
 var is_attacking: bool = false
 var attack_timer: float = 0.0 # Timer in seconds to damage player
-var attack_duration: float = 0.5
+@export var attack_duration: float = 0.5
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_direction: Vector2 = Vector2.ZERO
 
-signal damaged(amount)
-signal attacked(cost)
+@onready var timer: Timer = $Timer
 
-func apply_damage(amount: int):
-	emit_signal("damaged", amount)
-
-func perform_attack(cost: int):
-	emit_signal("attacked", cost)
 
 func _ready() -> void:
 	add_to_group("Enemy")
+	
+	health_bar.visible = false
 	
 	pick_random_direction()
 
 
 func _physics_process(delta: float) -> void:	
-	die()
-	
-	if is_dead: # Skip animation update
-		return	
+	if health <= 0: # Skip animation update and kill the enemy
+		animated_sprite_2d.play("drone_die")
+		
+		return
 	
 	if knockback_timer > 0.0:
 		velocity = knockback
@@ -79,8 +75,6 @@ func _physics_process(delta: float) -> void:
 			velocity = last_direction * speed * delta
 			
 			update_animation(last_direction)
-	
-	update_health()
 	
 	move_and_slide()
 	
@@ -140,8 +134,8 @@ func attack_melee(delta: float) -> void:
 	
 	if attack_timer >= attack_duration:
 		if player_in_range:
-			player.health -= 10
-			emit_signal("damaged", 10)
+			player.update_health(attack_basic)
+			
 			knockback_direction = (player.global_position - global_position).normalized()
 		
 			player.apply_knockback(knockback_direction, 100, 0.5)
@@ -149,17 +143,16 @@ func attack_melee(delta: float) -> void:
 		attack_timer = 0.0
 
 
-func _on_magpie_hitbox_body_entered(body: Node2D) -> void:
+func _on_drone_melee_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = true
 		
 		is_attacking = true
 		
 		swoop_speed = 0
-		 
-		
 
-func _on_magpie_hitbox_body_exited(body: Node2D) -> void:
+
+func _on_drone_melee_hitbox_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = false
 		
@@ -188,25 +181,21 @@ func _on_territory_body_exited(body: Node2D) -> void:
 		update_animation(last_direction)
 
 
-func update_health() -> void:
+func update_health(value: int) -> void:
+	health += value
+		
 	health_bar.value = health
 	
-	if health >= 50:
+	if health == health_bar.max_value or health <= 0:
 		health_bar.visible = false
 	else:
 		health_bar.visible = true
 
 
-func die() -> void:
-	if health <= 0 and not is_dead:
-		is_dead = true
-
-		animated_sprite_2d.play("drone_die")
-
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "drone_die":
 		queue_free()
+
 
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction * force
