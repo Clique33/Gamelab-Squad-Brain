@@ -30,6 +30,14 @@ sword and effect slash
 
 https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack
 
+Explosion-effect
+
+https://ansimuz.itch.io/explosion-animations-pack
+
+Drone Kami
+
+https://papoycore.itch.io/free-drone
+
 
 
 Asset mapa laboratório inicial gerado André Luiz Souza dos Santos mim no Google Gemini, com licença de uso livre para fins pessoal e comercial. 

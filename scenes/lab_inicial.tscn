@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjiswug3vccev"]
+[gd_scene load_steps=8 format=3 uid="uid://bjiswug3vccev"]
 
-[ext_resource type="Texture2D" uid="uid://bt6kqohvqflyr" path="res://Assets/UI/tutorial-lab.png" id="1_nco72"]
+[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://Assets/UI/tutorial-lab.png" id="1_nco72"]
+[ext_resource type="Script" uid="uid://bc8wv8flx3cbe" path="res://scripts/hit_pop.gd" id="2_nbyx5"]
+[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="3_pbvho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osoe6"]
 texture = ExtResource("1_nco72")
@@ -18,8 +20,37 @@ texture_region_size = Vector2i(512, 512)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_osoe6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbvho"]
+size = Vector2(79, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq8ra"]
+size = Vector2(79, 10)
+
 [node name="lab_inicial" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 240, 255, 239, 255, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 239, 255, 0, 0, 1, 0, 0, 0, 0, 0, 240, 255, 15, 0, 0, 0, 0, 0, 1, 0, 0, 0, 16, 0, 15, 0, 0, 0, 1, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_skxu7")
+
+[node name="pop_up" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pop_up"]
+position = Vector2(7, -113)
+shape = SubResource("RectangleShape2D_pbvho")
+
+[node name="hit_pop" type="Area2D" parent="pop_up"]
+collision_layer = 2
+script = ExtResource("2_nbyx5")
+dialog_texts = Array[String](["Finalmente!", "Com esse ultimo teste o protótipo estará concluído", "Finalmente poderemos salvar a humanidade", "hora de começar", "Iniciando teste final em 3... 2... 1..."])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pop_up/hit_pop"]
+position = Vector2(7, -100)
+shape = SubResource("RectangleShape2D_oq8ra")
+
+[node name="Player" parent="." instance=ExtResource("3_pbvho")]
+position = Vector2(8, 451)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[connection signal="body_entered" from="pop_up/hit_pop" to="pop_up/hit_pop" method="_on_body_entered"]

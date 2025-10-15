@@ -1,9 +1,11 @@
 [gd_scene load_steps=12 format=4 uid="uid://bdig7exjrlw0m"]
 
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/pause_menu.tscn" id="1_p57ef"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player_human.tscn" id="1_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_lnu2h"]
+
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="3_lnu2h"]
+
 [ext_resource type="PackedScene" uid="uid://c3x1vxodv8c7d" path="res://scenes/magpie.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/drone_melee.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="6_p57ef"]
@@ -349,7 +351,14 @@ limit_right = 1150
 limit_bottom = 660
 position_smoothing_enabled = true
 
+
+[node name="hp_hud" parent="Environment/test/Camera2D" instance=ExtResource("6_p57ef")]
+position = Vector2(2, -2)
+
+
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("1_p57ef")]
 visible = false
+
+[connection signal="damaged" from="Environment/Drone_melee" to="Environment/test/Camera2D/hp_hud" method="_on_drone_melee_damaged"]
