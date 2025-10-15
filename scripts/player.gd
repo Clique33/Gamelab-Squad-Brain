@@ -7,8 +7,10 @@ var last_direction: Vector2 = Vector2.ZERO
 
 var enemy_in_range = false
 
+
 @onready var hp_hud: Node2D = $"../hp_hud"
 @export var health: float = 100.0
+
 @onready var health_bar: ProgressBar = $HealthBar
 var is_dead: bool = false
 
@@ -150,6 +152,9 @@ func die() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "die":
+		
+		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		
 		queue_free()
 
 

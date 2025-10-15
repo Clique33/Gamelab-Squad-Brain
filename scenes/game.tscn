@@ -355,7 +355,6 @@ position_smoothing_enabled = true
 [node name="hp_hud" parent="Environment/test/Camera2D" instance=ExtResource("6_p57ef")]
 position = Vector2(2, -2)
 
-
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("1_p57ef")]
