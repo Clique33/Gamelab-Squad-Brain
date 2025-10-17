@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://c3y2m77wrvop3"]
+[gd_scene load_steps=13 format=4 uid="uid://c3y2m77wrvop3"]
 
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="2_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://c3x1vxodv8c7d" path="res://scenes/magpie.tscn" id="3_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/drone_melee.tscn" id="4_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/drone_kamikaze.tscn" id="5_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="5_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player_human.tscn" id="6_q5onr"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/pause_menu.tscn" id="7_jhx03"]
@@ -450,6 +451,13 @@ min_position = Vector2(248, 80)
 position = Vector2(347, 543)
 max_position = Vector2(450, 576)
 min_position = Vector2(256, 444)
+
+[node name="DroneMelee2" parent="Environment/enemies" instance=ExtResource("5_4mrxx")]
+position = Vector2(407, 349)
+max_position = Vector2(450, 371)
+min_position = Vector2(300, 260)
+health = 50.0
+attack_basic = -20.0
 
 [node name="Drone_melee2" parent="Environment/enemies" instance=ExtResource("4_w7kh3")]
 position = Vector2(927, 389)
