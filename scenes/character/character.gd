@@ -8,7 +8,7 @@ const FRICTION: float = 0.15
 @export var max_speed: int = 100
 
 @onready var state_machine: FiniteStateMachine = get_node("FiniteStateMachine")
-@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@export var animated_sprite: AnimatedSprite2D
 
 var mov_direction: Vector2 = Vector2.ZERO
 

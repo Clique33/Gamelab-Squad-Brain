@@ -481,10 +481,11 @@ _data = {
 &"move": SubResource("Animation_j0hjy")
 }
 
-[node name="Player" instance=ExtResource("1_hipg2")]
+[node name="Player" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_hipg2")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ydrc1")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource("3_eb0w2")
