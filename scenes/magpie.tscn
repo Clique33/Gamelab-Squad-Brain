@@ -244,6 +244,7 @@ attack_basic = -10.0
 attack_duration = 0.6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-4.76837e-07, 4.76837e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_mucbb")
