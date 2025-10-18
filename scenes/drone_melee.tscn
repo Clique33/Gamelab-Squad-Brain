@@ -213,10 +213,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcoha"]
-radius = 7.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7d178"]
-radius = 7.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnmnu"]
 radius = 38.0
@@ -242,11 +242,11 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_dcoha")
 
 [node name="DroneMeleeHitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DroneMeleeHitbox"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_7d178")
 
 [node name="Territory" type="Area2D" parent="."]
