@@ -1,10 +1,17 @@
 extends Character
+class_name Player
 
 @onready var sword : Node2D = get_node("Sword")
 @onready var sword_hitbox: Area2D = get_node("Sword/Node2D/Sprite2D/Hitbox")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
 
 func _process(_delta: float) -> void:
+	handle_sword_direction()
+
+func handle_sword_direction() -> void:
+	if not sword_animation_player.is_playing():
+		sword.hide()
+	
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 
 	if mouse_direction.x > 0 and animated_sprite.flip_h:
@@ -19,18 +26,25 @@ func _process(_delta: float) -> void:
 		sword.scale.y = -1
 	elif sword.scale.y == -1 and mouse_direction.x > 0:
 		sword.scale.y = 1
-	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing():
+	if is_attacking() and not sword_animation_player.is_playing():
+		sword.show()
+		
 		sword_animation_player.play("attack")
 
-func get_input() -> void:
-	mov_direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_down"):
-		mov_direction += Vector2.DOWN
-	if Input.is_action_pressed("ui_left"):
-		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
-		mov_direction += Vector2.RIGHT
-	if Input.is_action_pressed("ui_up"):
-		mov_direction += Vector2.UP
-	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing():
-		sword_animation_player.play("attack")
+func is_attacking() -> bool:
+	return Input.is_action_just_pressed("attack")
+
+#func get_input() -> void:
+	#print("tsr")
+	#mov_direction = Vector2.ZERO
+	#if Input.is_action_pressed("ui_down"):
+		#mov_direction += Vector2.DOWN
+	#if Input.is_action_pressed("ui_left"):
+		#mov_direction += Vector2.LEFT
+	#if Input.is_action_pressed("ui_right"):
+		#mov_direction += Vector2.RIGHT
+	#if Input.is_action_pressed("ui_up"):
+		#mov_direction += Vector2.UP
+	#if Input.is_action_just_pressed("attack") and not sword_animation_player.is_playing():
+		#sword_animation_player.play("attack")
+		
