@@ -237,6 +237,7 @@ animation = &"move_right"
 autoplay = "move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_dcoha")
 
@@ -249,7 +250,6 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_7d178")
 
 [node name="Territory" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 3
 
