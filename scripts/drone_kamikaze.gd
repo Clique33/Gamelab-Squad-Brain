@@ -11,7 +11,7 @@ var old_position: Vector2 = Vector2.ZERO
 @export var max_position: Vector2
 @export var min_position: Vector2
 
-var swoop_speed: float = 3000.0
+var swoop_speed: float = 3500.0
 var swoop: bool = false
 
 var direction_to_player: Vector2 = Vector2.ZERO
@@ -42,8 +42,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:	
-	if health <= 0: # Skip animation update and kill the enemy
-		animated_sprite_2d.play("drone_die")
+	if health <= 0: # Skip animation update and kill the enemyrsr
 		
 		return
 	
@@ -64,6 +63,7 @@ func _physics_process(delta: float) -> void:
 			attack_melee(delta)
 			
 			update_animation(direction_to_player, true)
+			
 		else:
 			# Increment the timer by the time since the last frame
 			direction_change_timer += delta 
@@ -102,7 +102,7 @@ func update_animation(direction: Vector2, swooping: bool = false) -> void:
 	if player_in_range and swooping:
 		animated_sprite_2d.play("drone_attack")
 		
-		animated_sprite_2d.flip_h = direction.x < 0
+		animated_sprite_2d.flip_h = direction.x
 		
 		animated_sprite_2d.flip_v = false
 		
@@ -131,7 +131,7 @@ func update_animation(direction: Vector2, swooping: bool = false) -> void:
 func attack_melee(delta: float) -> void:
 	if is_attacking:
 		attack_timer += delta
-	
+
 	if attack_timer >= attack_duration:
 		if player_in_range:
 			player.update_health(attack_basic)
@@ -159,6 +159,8 @@ func _on_drone_melee_hitbox_body_exited(body: Node2D) -> void:
 		is_attacking = false
 		
 		update_animation(last_direction)
+		
+		attack_timer = 0.0
 		
 		swoop_speed = 3000.0
 
@@ -194,6 +196,8 @@ func update_health(value: int) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "drone_die":
+		queue_free()
+	elif animated_sprite_2d.animation == "drone_attack":
 		queue_free()
 
 

@@ -329,14 +329,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label13" type="Label" parent="Environment/Background/Notas"]
-layout_mode = 0
-offset_left = 297.0
-offset_top = 515.0
-offset_right = 366.0
-offset_bottom = 538.0
-text = "2 melees"
-
 [node name="Label" type="Label" parent="Environment/Background/Notas"]
 layout_mode = 0
 offset_left = 42.0
@@ -385,14 +377,6 @@ offset_right = 738.0
 offset_bottom = 274.0
 text = "Inimigos Kamizake no meio"
 
-[node name="Label6" type="Label" parent="Environment/Background/Notas"]
-layout_mode = 0
-offset_left = 157.0
-offset_top = 787.0
-offset_right = 232.0
-offset_bottom = 810.0
-text = "Kamikaze"
-
 [node name="Label7" type="Label" parent="Environment/Background/Notas"]
 layout_mode = 0
 offset_left = 103.0
@@ -425,14 +409,6 @@ offset_right = 749.0
 offset_bottom = 762.0
 text = "Torreta"
 
-[node name="Label11" type="Label" parent="Environment/Background/Notas"]
-layout_mode = 0
-offset_left = 682.0
-offset_top = 811.0
-offset_right = 722.0
-offset_bottom = 834.0
-text = "2 Melees"
-
 [node name="Middleground" type="TileMapLayer" parent="Environment"]
 z_index = 1
 y_sort_enabled = true
@@ -450,27 +426,43 @@ min_position = Vector2(248, 80)
 [node name="Drone_melee" parent="Environment/enemies" instance=ExtResource("4_w7kh3")]
 position = Vector2(347, 543)
 max_position = Vector2(450, 576)
-min_position = Vector2(256, 444)
+min_position = Vector2(250, 444)
 
-[node name="DroneMelee2" parent="Environment/enemies" instance=ExtResource("5_4mrxx")]
-position = Vector2(407, 349)
-max_position = Vector2(450, 371)
-min_position = Vector2(300, 260)
+[node name="Drone_melee3" parent="Environment/enemies" instance=ExtResource("4_w7kh3")]
+position = Vector2(435, 494)
+max_position = Vector2(450, 576)
+min_position = Vector2(250, 444)
+
+[node name="DroneKamikaze" parent="Environment/enemies" instance=ExtResource("5_4mrxx")]
+position = Vector2(213, 755)
+max_position = Vector2(425, 820)
+min_position = Vector2(150, 680)
 health = 50.0
-attack_basic = -20.0
+attack_basic = -30.0
+attack_duration = 0.57
+
+[node name="DroneKamikaze2" parent="Environment/enemies" instance=ExtResource("5_4mrxx")]
+position = Vector2(347, 840)
+max_position = Vector2(425, 920)
+min_position = Vector2(150, 680)
+health = 50.0
+attack_basic = -30.0
+attack_duration = 0.57
 
 [node name="Drone_melee2" parent="Environment/enemies" instance=ExtResource("4_w7kh3")]
 position = Vector2(927, 389)
+max_position = Vector2(1080, 580)
+min_position = Vector2(760, 360)
 
 [node name="Magpie2" parent="Environment/enemies" instance=ExtResource("3_7r4gi")]
 position = Vector2(787, 780)
-max_position = Vector2(854, 700)
-min_position = Vector2(586, 900)
+max_position = Vector2(855, 900)
+min_position = Vector2(585, 700)
 
 [node name="DroneMelee" parent="Environment/enemies" instance=ExtResource("4_w7kh3")]
 position = Vector2(652, 839)
-max_position = Vector2(854, 700)
-min_position = Vector2(586, 900)
+max_position = Vector2(855, 900)
+min_position = Vector2(585, 700)
 
 [node name="hp_hud" parent="Environment" instance=ExtResource("5_e3hyu")]
 position = Vector2(355, 301)

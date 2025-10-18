@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cgvsbebk6g1ur"]
+[gd_scene load_steps=39 format=3 uid="uid://cgvsbebk6g1ur"]
 
 [ext_resource type="Script" uid="uid://ti4awxfjh8r6" path="res://scripts/drone_kamikaze.gd" id="1_2hc0j"]
 [ext_resource type="Texture2D" uid="uid://dfaac6w8kblfy" path="res://assets/enemy/Kamikaze/mine_drone_exploding.png" id="2_2hc0j"]
@@ -34,6 +34,34 @@ region = Rect2(32, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_llc8c"]
 atlas = ExtResource("2_2hc0j")
 region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hc0j"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k28w1"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfdnl"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjii4"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtv06"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyllx"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1yv"]
+atlas = ExtResource("4_uew7q")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lx2qt"]
 atlas = ExtResource("3_k28w1")
@@ -114,10 +142,31 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_llc8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hc0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k28w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfdnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjii4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtv06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyllx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1yv")
 }],
 "loop": false,
 "name": &"drone_attack",
-"speed": 8.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -181,10 +230,10 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7d178"]
-radius = 7.0
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnmnu"]
-radius = 38.0
+radius = 79.0
 
 [node name="DroneMelee" type="CharacterBody2D"]
 z_index = 2
@@ -192,6 +241,7 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2hc0j")
+attack_duration = 0.8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.875, 0.875)
@@ -200,6 +250,7 @@ animation = &"drone_attack"
 autoplay = "move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_dcoha")
 
@@ -212,7 +263,6 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_7d178")
 
 [node name="Territory" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 3
 

@@ -251,9 +251,11 @@ animation = &"fight"
 autoplay = "move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_b3lim")
 
 [node name="MagpieHitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 3
 
@@ -261,7 +263,6 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_7d178")
 
 [node name="Territory" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 3
 
