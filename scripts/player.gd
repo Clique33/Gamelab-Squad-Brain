@@ -1,6 +1,7 @@
-extends Player
+extends CharacterBody2D
 
 enum TYPE_TRANSFORM{ROBOT,HUMAN}
+var type_of_body: TYPE_TRANSFORM
 
 @onready var human_animated_sprite: AnimatedSprite2D = $HumanAnimatedSprite
 @onready var robot_animated_sprite: AnimatedSprite2D = $RobotAnimatedSprite
@@ -11,10 +12,9 @@ var last_direction: Vector2 = Vector2.ZERO
 
 var enemy_in_range = false
 
-
-
 @onready var hp_hud: Node2D = $"../hp_hud"
 @export var health: float = 100.0
+@export var energy: float = 100.0
 
 var is_dead: bool = false
 
@@ -27,24 +27,44 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_direction: Vector2 = Vector2.ZERO
 
+@export var animated_sprite: AnimatedSprite2D
+
+@onready var sword: Node2D = $Sword
+@onready var sword_animation_player: AnimationPlayer = $Sword/SwordAnimationPlayer
+
+@onready var hitbox: Area2D = $Sword/Node2D/Sprite2D/Hitbox
+
+@export var transformation_limit: float
+@onready var transformation_timer: Timer = $TransformationTimer
+var time_part: float = 0.9
+
 
 func _ready() -> void:
 	add_to_group("Player")
+	
 	change_to(TYPE_TRANSFORM.HUMAN)
 
 func change_to(type_transformation : TYPE_TRANSFORM = TYPE_TRANSFORM.ROBOT) -> void:
 	if type_transformation == TYPE_TRANSFORM.ROBOT:
 		human_animated_sprite.visible = false
+		
 		animated_sprite = robot_animated_sprite
 	elif type_transformation == TYPE_TRANSFORM.HUMAN:
 		robot_animated_sprite.visible = false
+		
 		animated_sprite = human_animated_sprite
+	
+	type_of_body = type_transformation
+		
 	animated_sprite.visible = true
+	
 	
 func _physics_process(delta: float) -> void:
 	die()
 	
 	if is_dead:
+		
+		
 		return
 		
 	if knockback_timer > 0.0:
@@ -66,9 +86,13 @@ func _physics_process(delta: float) -> void:
 		if direction != Vector2.ZERO:
 			last_direction = direction
 	
+	handle_sword_direction()
+	
 	attack_melee(delta)
 	
 	update_animation()
+	
+	uptade_energia()
 	
 	move_and_slide()
 
@@ -99,20 +123,23 @@ func update_animation() -> void:
 
 
 func attack_melee(delta: float) -> void:
-	if is_attacking():
+	if enemy_in_range and sword_animation_player.is_playing():
 		attack_timer += delta
 	
-	if enemy_in_range and sword_animation_player.is_playing():
+	if enemy_in_range and attack_timer >= attack_duration:
 		enemy.update_health(attack_basic)
 		
 		knockback_direction = (enemy.global_position - global_position).normalized()
 	
 		enemy.apply_knockback(knockback_direction, 75.0, 0.5)
+		
+		attack_timer = 0
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		enemy_in_range  = true
+		
 		enemy = body
 
 
@@ -121,6 +148,8 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 		enemy_in_range  = false
 		
 		enemy = null
+		
+		attack_timer = 0
 
 
 func update_health(value: int) -> void:
@@ -144,14 +173,69 @@ func _on_human_animated_sprite_animation_finished() -> void:
 		queue_free()
 
 
-func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
-	knockback = direction * force
+func _on_robot_animated_sprite_animation_finished() -> void:
+	if animated_sprite.animation == "die":
+		
+		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		
+		queue_free()
+
+func apply_knockback(direction_2: Vector2, force: float, knockback_duration: float) -> void:
+	knockback = direction_2 * force
 	
 	knockback_timer = knockback_duration
 
-##FUNÇ~
+
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
 			change_to(TYPE_TRANSFORM.ROBOT)
-	if Input.is_action_just_pressed("ui_up"):
-			change_to(TYPE_TRANSFORM.HUMAN)
+			
+			attack_basic *= 2
+			
+			transformation_timer.start(transformation_limit)
+
+
+func _on_change_timer_timeout() -> void:
+	change_to(TYPE_TRANSFORM.HUMAN)
+	
+	attack_basic *= 1
+
+
+func uptade_energia(value: int = -10) -> void:
+	
+	if type_of_body == TYPE_TRANSFORM.ROBOT:
+		if transformation_timer.time_left - 0.1 <= transformation_limit * time_part:
+			time_part -= 0.1
+			
+			energy += value
+
+			hp_hud.energy_bar_update(energy)
+
+
+func is_attacking() -> bool:
+	return Input.is_action_just_pressed("attack")
+	
+
+func handle_sword_direction() -> void:
+	if not sword_animation_player.is_playing():
+		sword.hide()
+	
+		var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+
+		if mouse_direction.x > 0 and animated_sprite.flip_h:
+			animated_sprite.flip_h = false
+		elif mouse_direction.x < 0 and not animated_sprite.flip_h:
+			animated_sprite.flip_h = true
+
+			
+		sword.rotation = mouse_direction.angle()
+		
+		if sword.scale.y == 1 and mouse_direction.x < 0:
+			sword.scale.y = -1
+		elif sword.scale.y == -1 and mouse_direction.x > 0:
+			sword.scale.y = 1
+		
+	if is_attacking() and not sword_animation_player.is_playing():
+		sword.show()
+		
+		sword_animation_player.play("attack")

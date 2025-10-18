@@ -8,5 +8,5 @@ func energy_bar_update(value: int):
 	energy_bar.value = value
 
 
-func hp_bar_update(value) -> void:
+func hp_bar_update(value: int) -> void:
 	hp_bar.value = value
