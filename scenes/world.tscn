@@ -393,28 +393,12 @@ offset_right = 161.0
 offset_bottom = 202.0
 text = "Torreta"
 
-[node name="Label8" type="Label" parent="Environment/Background/Notas"]
-layout_mode = 0
-offset_left = 934.0
-offset_top = 189.0
-offset_right = 992.0
-offset_bottom = 212.0
-text = "Torreta"
-
 [node name="Label9" type="Label" parent="Environment/Background/Notas"]
 layout_mode = 0
 offset_left = 217.0
 offset_top = 31.0
 offset_right = 275.0
 offset_bottom = 54.0
-text = "Torreta"
-
-[node name="Label10" type="Label" parent="Environment/Background/Notas"]
-layout_mode = 0
-offset_left = 691.0
-offset_top = 739.0
-offset_right = 749.0
-offset_bottom = 762.0
 text = "Torreta"
 
 [node name="Middleground" type="TileMapLayer" parent="Environment"]
@@ -438,11 +422,7 @@ position = Vector2(992, 227)
 shape = SubResource("RectangleShape2D_4mrxx")
 
 [node name="Player" parent="Environment" instance=ExtResource("6_q5onr")]
-position = Vector2(391, 645)
-health = 100.0
-attack_basic = -50.0
-attack_duration = 0.04
-transformation_limit = 10.0
+position = Vector2(939, 146)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Player"]
 visible = false
@@ -504,6 +484,9 @@ min_position = Vector2(585, 700)
 
 [node name="Turret" parent="Environment/enemies" instance=ExtResource("10_w7kh3")]
 position = Vector2(955, 213)
+
+[node name="Turret2" parent="Environment/enemies" instance=ExtResource("10_w7kh3")]
+position = Vector2(720, 755)
 
 [node name="hp_hud" parent="Environment" instance=ExtResource("5_e3hyu")]
 position = Vector2(376, 272)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ti4awxfjh8r6" path="res://scripts/enemy/drone_kamikaze.gd" id="1_2hc0j"]
 [ext_resource type="Texture2D" uid="uid://dfaac6w8kblfy" path="res://assets/enemy/kamikaze/mine_drone_exploding.png" id="2_2hc0j"]
 [ext_resource type="Texture2D" uid="uid://capg55m1jeekn" path="res://assets/enemy/kamikaze/mine_drone_death.png" id="3_k28w1"]
-[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/enemy drones/explosion.png" id="4_uew7q"]
+[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="4_uew7q"]
 [ext_resource type="Texture2D" uid="uid://10amda4fnp62" path="res://assets/enemy/kamikaze/mine_drone_idle.png" id="5_k28w1"]
 [ext_resource type="Texture2D" uid="uid://bdy7po0xxnrp1" path="res://assets/enemy/kamikaze/mine_drone_activated.png" id="6_y8b24"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4innee08rhoc" path="res://assets/enemy/enemy drones/elec_drone_atk.png" id="2_dcoha"]
 [ext_resource type="Texture2D" uid="uid://bev4juryhp0bn" path="res://assets/enemy/enemy drones/elec_drone_death.png" id="2_v52ds"]
 [ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/enemy/enemy drones/elec_drone_charging.png" id="3_v52ds"]
-[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/enemy drones/explosion.png" id="4_7juch"]
+[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="4_7juch"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/enemy/enemy drones/elec_drone_idle.png" id="4_dcoha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7juch"]

@@ -17,13 +17,16 @@ var angle_to_target: float
 
 
 func _ready() -> void:
+	add_to_group("Enemy")
+
+	health_bar.visible = false
+	
 	target = find_target()
 
 
 func _process(delta: float) -> void:
 	if health <= 0: # Skip animation update and kill the enemy
-		#animated_sprite_2d.play("turret_die")
-		#queue_free()
+		gun_animated_sprite_2d.play("turret_die")
 		
 		return	
 	
@@ -71,10 +74,15 @@ func _on_reload_timer_timeout() -> void:
 
 func update_health(value: int) -> void:
 	health += value
-		
+
 	health_bar.value = health
 	
 	if health == health_bar.max_value or health <= 0:
 		health_bar.visible = false
 	else:
 		health_bar.visible = true
+
+
+func _on_gun_animated_sprite_2d_animation_finished() -> void:
+	if gun_animated_sprite_2d.animation == "turret_die":
+		queue_free()

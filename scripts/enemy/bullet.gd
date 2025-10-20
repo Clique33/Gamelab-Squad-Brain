@@ -9,7 +9,6 @@ func _physics_process(delta: float) -> void:
 	movement = RIGHT.rotated(rotation) * speed * delta
 	
 	global_position += movement
-	
 
 
 func destroy() -> void:

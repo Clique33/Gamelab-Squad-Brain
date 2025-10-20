@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c30hnkfqmylsy"
-path="res://.godot/imported/explosion.png-4bff335e60f4e5a93e1736788b404327.ctex"
+path="res://.godot/imported/explosion.png-04c5cb347f31e4f0f926ae3c70dc0393.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/enemy drones/explosion.png"
-dest_files=["res://.godot/imported/explosion.png-4bff335e60f4e5a93e1736788b404327.ctex"]
+source_file="res://assets/enemy/explosion.png"
+dest_files=["res://.godot/imported/explosion.png-04c5cb347f31e4f0f926ae3c70dc0393.ctex"]
 
 [params]
 
