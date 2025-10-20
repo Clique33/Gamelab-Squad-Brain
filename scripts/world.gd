@@ -5,6 +5,7 @@ var current_scene: String = "world"
 @onready var player: CharacterBody2D = $Environment/Player
 @onready var hp_hud: Node2D = $Environment/hp_hud
 
+
 func _ready() -> void:
 	if Global.last_world_positioin != Vector2.ZERO:
 		player.position = Global.last_world_positioin + Vector2(0, 2)
@@ -12,8 +13,8 @@ func _ready() -> void:
 		hp_hud.hp_bar_update(Global.health)
 		player.health = Global.health
 		
-		# hp_hud.energy_bar_update(Global.energy)
-		# player.energy = Global.energy
+		hp_hud.energy_bar_update(Global.energy)
+		player.energy = Global.energy
 
 
 func _on_cave_montain_body_entered(body: Node2D) -> void:
@@ -31,7 +32,7 @@ func change_scene(change_to: String) -> void:
 	
 	Global.health = player.health
 	
-	# Global.energy = player.energy
+	Global.energy = player.energy
 	
 	match change_to:
 		"montain":

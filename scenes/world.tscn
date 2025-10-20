@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://c3y2m77wrvop3"]
+[gd_scene load_steps=16 format=4 uid="uid://c3y2m77wrvop3"]
 
 [ext_resource type="Script" uid="uid://bjpispfwysjyp" path="res://scripts/world.gd" id="1_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="2_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://c3x1vxodv8c7d" path="res://scenes/magpie.tscn" id="3_7r4gi"]
-[ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/drone_melee.tscn" id="4_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/drone_kamikaze.tscn" id="5_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://c3x1vxodv8c7d" path="res://scenes/enemy/magpie.tscn" id="3_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="4_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/enemy/drone_kamikaze.tscn" id="5_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="5_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="6_q5onr"]
-[ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/pause_menu.tscn" id="7_jhx03"]
+[ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="7_jhx03"]
+[ext_resource type="PackedScene" uid="uid://dl71k0s0b3pco" path="res://scenes/enemy/turret.tscn" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mrxx"]
 texture = ExtResource("1_i7141")
@@ -312,7 +313,8 @@ texture = ExtResource("2_4mrxx")
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.67064, -4.0116, -2.77946, -5.21508, 2.55023, -5.21508, 4.72795, -3.89698, 4.67064, 1.77656, 2.26369, 3.49582, -2.34531, 3.42901, -4.61334, 1.83387)
 
 [sub_resource type="TileSet" id="TileSet_iywne"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_7r4gi")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mrxx"]
@@ -435,6 +437,21 @@ shape = SubResource("RectangleShape2D_4mrxx")
 position = Vector2(992, 227)
 shape = SubResource("RectangleShape2D_4mrxx")
 
+[node name="Player" parent="Environment" instance=ExtResource("6_q5onr")]
+position = Vector2(391, 645)
+health = 100.0
+attack_basic = -50.0
+attack_duration = 0.04
+transformation_limit = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="Environment/Player"]
+visible = false
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = -500
+limit_right = 1150
+limit_bottom = 1000
+
 [node name="enemies" type="Node2D" parent="Environment"]
 
 [node name="Magpie" parent="Environment/enemies" instance=ExtResource("3_7r4gi")]
@@ -485,23 +502,11 @@ position = Vector2(652, 839)
 max_position = Vector2(855, 900)
 min_position = Vector2(585, 700)
 
+[node name="Turret" parent="Environment/enemies" instance=ExtResource("10_w7kh3")]
+position = Vector2(955, 213)
+
 [node name="hp_hud" parent="Environment" instance=ExtResource("5_e3hyu")]
 position = Vector2(376, 272)
-
-[node name="Player" parent="Environment" instance=ExtResource("6_q5onr")]
-position = Vector2(342, 327)
-health = 100.0
-attack_basic = -50.0
-attack_duration = 0.04
-transformation_limit = 10.0
-
-[node name="Camera2D" type="Camera2D" parent="Environment/Player"]
-visible = false
-zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = -500
-limit_right = 1150
-limit_bottom = 1000
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 

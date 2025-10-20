@@ -168,7 +168,7 @@ func die() -> void:
 func _on_human_animated_sprite_animation_finished() -> void:
 	if animated_sprite.animation == "die":
 		
-		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/endgame_screen.tscn")
 		
 		queue_free()
 
@@ -176,7 +176,7 @@ func _on_human_animated_sprite_animation_finished() -> void:
 func _on_robot_animated_sprite_animation_finished() -> void:
 	if animated_sprite.animation == "die":
 		
-		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/endgame_screen.tscn")
 		
 		queue_free()
 
