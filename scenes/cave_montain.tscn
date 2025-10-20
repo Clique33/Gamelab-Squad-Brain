@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_bimve"]
 [ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_5r1tx"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_b3yv3"]
-[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player_human.tscn" id="5_8j45y"]
-[ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/pause_menu.tscn" id="6_ww0yo"]
+[ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_8j45y"]
+[ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_ww0yo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2l0f"]
 texture = ExtResource("2_bimve")
@@ -321,7 +321,8 @@ texture = ExtResource("3_5r1tx")
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.67064, -4.0116, -2.77946, -5.21508, 2.55023, -5.21508, 4.72795, -3.89698, 4.67064, 1.77656, 2.26369, 3.49582, -2.34531, 3.42901, -4.61334, 1.83387)
 
 [sub_resource type="TileSet" id="TileSet_ip074"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_6sqbx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywssb"]
@@ -352,10 +353,10 @@ shape = SubResource("RectangleShape2D_ywssb")
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_b3yv3")]
 position = Vector2(355, 301)
 
-[node name="PlayerHuman" parent="Enviroment" instance=ExtResource("5_8j45y")]
+[node name="Player" parent="Enviroment" instance=ExtResource("5_8j45y")]
 position = Vector2(296, 309)
 
-[node name="Camera2D" type="Camera2D" parent="Enviroment/PlayerHuman"]
+[node name="Camera2D" type="Camera2D" parent="Enviroment/Player"]
 visible = false
 zoom = Vector2(3, 3)
 limit_left = 288

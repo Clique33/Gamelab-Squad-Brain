@@ -726,11 +726,13 @@ _data = {
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
 z_index = 1
 y_sort_enabled = true
-collision_mask = 3
+collision_layer = 3
+collision_mask = 7
 script = ExtResource("1_g2els")
-health = 20.0
-attack_basic = -30.0
+attack_basic = -10.0
+attack_duration = 0.04
 animated_sprite = NodePath("RobotAnimatedSprite")
+transformation_limit = 10.0
 
 [node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fjrip")
@@ -764,7 +766,7 @@ offset = Vector2(5, -4)
 
 [node name="Hitbox" type="Area2D" parent="Sword/Node2D/Sprite2D"]
 collision_layer = 0
-collision_mask = 3
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/Sprite2D/Hitbox"]
 position = Vector2(6.36398, -4.94973)

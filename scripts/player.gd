@@ -63,8 +63,6 @@ func _physics_process(delta: float) -> void:
 	die()
 	
 	if is_dead:
-		
-		
 		return
 		
 	if knockback_timer > 0.0:
@@ -128,10 +126,11 @@ func attack_melee(delta: float) -> void:
 	
 	if enemy_in_range and attack_timer >= attack_duration:
 		enemy.update_health(attack_basic)
+
+		if enemy.get_scene_file_path() != "res://scenes/enemy/turret.tscn":
+			knockback_direction = (enemy.global_position - global_position).normalized()
 		
-		knockback_direction = (enemy.global_position - global_position).normalized()
-	
-		enemy.apply_knockback(knockback_direction, 75.0, 0.5)
+			enemy.apply_knockback(knockback_direction, 75.0, 0.5)
 		
 		attack_timer = 0
 
@@ -139,7 +138,7 @@ func attack_melee(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		enemy_in_range  = true
-		
+		print(body.get_scene_file_path())
 		enemy = body
 
 
@@ -168,7 +167,7 @@ func die() -> void:
 func _on_human_animated_sprite_animation_finished() -> void:
 	if animated_sprite.animation == "die":
 		
-		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/endgame_screen.tscn")
 		
 		queue_free()
 
@@ -176,7 +175,7 @@ func _on_human_animated_sprite_animation_finished() -> void:
 func _on_robot_animated_sprite_animation_finished() -> void:
 	if animated_sprite.animation == "die":
 		
-		get_tree().change_scene_to_file("res://scenes/endgame_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/ui/endgame_screen.tscn")
 		
 		queue_free()
 
@@ -202,7 +201,6 @@ func _on_change_timer_timeout() -> void:
 
 
 func uptade_energia(value: int = -10) -> void:
-	
 	if type_of_body == TYPE_TRANSFORM.ROBOT:
 		if transformation_timer.time_left - 0.1 <= transformation_limit * time_part:
 			time_part -= 0.1
@@ -227,7 +225,6 @@ func handle_sword_direction() -> void:
 		elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 			animated_sprite.flip_h = true
 
-			
 		sword.rotation = mouse_direction.angle()
 		
 		if sword.scale.y == 1 and mouse_direction.x < 0:

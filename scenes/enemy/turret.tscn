@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://dl71k0s0b3pco"]
+
+[ext_resource type="Script" uid="uid://c7i3ng65wqc8g" path="res://scripts/enemy/turret.gd" id="1_57le0"]
+[ext_resource type="Texture2D" uid="uid://b7atn5hte3ya" path="res://assets/enemy/turret/turret_BASE.png" id="2_2a3v4"]
+[ext_resource type="PackedScene" uid="uid://bjbvwtnc6bosp" path="res://scenes/enemy/bullet.tscn" id="2_5te02"]
+[ext_resource type="Texture2D" uid="uid://bdyg37ug5eij5" path="res://assets/enemy/turret/turret_FACE.png" id="3_5te02"]
+[ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="5_5te02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57le0"]
+atlas = ExtResource("3_5te02")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65cm3"]
+atlas = ExtResource("3_5te02")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yxse"]
+atlas = ExtResource("3_5te02")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvrbd"]
+atlas = ExtResource("3_5te02")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyqak"]
+atlas = ExtResource("3_5te02")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3l2q"]
+atlas = ExtResource("5_5te02")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umsvg"]
+atlas = ExtResource("5_5te02")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qbd0"]
+atlas = ExtResource("5_5te02")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1pn7"]
+atlas = ExtResource("5_5te02")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b1np"]
+atlas = ExtResource("5_5te02")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag7h4"]
+atlas = ExtResource("5_5te02")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iko7o"]
+atlas = ExtResource("5_5te02")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b6c6"]
+atlas = ExtResource("5_5te02")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1pn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57le0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65cm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yxse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvrbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyqak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57le0")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3l2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umsvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qbd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1pn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b1np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag7h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iko7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b6c6")
+}],
+"loop": false,
+"name": &"turret_die",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a3v4"]
+size = Vector2(22, 22)
+
+[node name="Turret" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_57le0")
+BULLET = ExtResource("2_5te02")
+health = 50.0
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_2a3v4")
+
+[node name="GunAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_t1pn7")
+animation = &"shoot"
+autoplay = "shoot"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(150, 0)
+collision_mask = 6
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+wait_time = 0.3
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2a3v4")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.721569, 1, 0.223529, 1)
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = -10.0
+max_value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[connection signal="animation_finished" from="GunAnimatedSprite2D" to="." method="_on_gun_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]
