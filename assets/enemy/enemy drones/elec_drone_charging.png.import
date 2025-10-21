@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj3ablleshg0y"
-path="res://.godot/imported/elec_drone_charging.png-64bedd6e47d9bf49cc25f65412525962.ctex"
+path="res://.godot/imported/elec_drone_charging.png-68984a55ab367b6139cd6ef74b3ade71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/enemy drones/elec_drone_charging.png"
-dest_files=["res://.godot/imported/elec_drone_charging.png-64bedd6e47d9bf49cc25f65412525962.ctex"]
+source_file="res://Assets/enemy/enemy drones/elec_drone_charging.png"
+dest_files=["res://.godot/imported/elec_drone_charging.png-68984a55ab367b6139cd6ef74b3ade71.ctex"]
 
 [params]
 

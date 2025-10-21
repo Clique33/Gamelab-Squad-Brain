@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://capg55m1jeekn"
-path="res://.godot/imported/mine_drone_death.png-8b96c4c8235e2ff65c6d6b0eedcf0f91.ctex"
+path="res://.godot/imported/mine_drone_death.png-18c4e192b101ed00e9f378d83853a0ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/kamikaze/mine_drone_death.png"
-dest_files=["res://.godot/imported/mine_drone_death.png-8b96c4c8235e2ff65c6d6b0eedcf0f91.ctex"]
+source_file="res://Assets/enemy/kamikaze/mine_drone_death.png"
+dest_files=["res://.godot/imported/mine_drone_death.png-18c4e192b101ed00e9f378d83853a0ad.ctex"]
 
 [params]
 

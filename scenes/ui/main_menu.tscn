@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://c5il80e5onj2u"]
 
 [ext_resource type="Script" uid="uid://c64tt5k7ta6i0" path="res://scripts/ui/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://assets/ui/tutorial-lab.png" id="1_l6cm7"]
-[ext_resource type="FontFile" uid="uid://neecrem67in6" path="res://assets/fonts/CyberpunkCraftpixPixel.otf" id="2_ekxnf"]
-[ext_resource type="AudioStream" uid="uid://c8tj6nmoacdf1" path="res://assets/sounds/menu_sounds/Pixel 10.mp3" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://Assets/UI/tutorial-lab.png" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://neecrem67in6" path="res://Assets/fonts/CyberpunkCraftpixPixel.otf" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://c8tj6nmoacdf1" path="res://Assets/sounds/menu_sounds/Pixel 10.mp3" id="4_wu84c"]
 [ext_resource type="Script" uid="uid://bxtwg84krn62m" path="res://scripts/ui/audio_crontrol.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://c3om2gr6iab6b" path="res://scripts/ui/fullscreen_control.gd" id="6_rtw2f"]
 
@@ -451,8 +451,8 @@ uri = "https://github.com/limamon"
 [connection signal="pressed" from="Main_buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
-[connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer/MusicVolume" to="Options/VBoxContainer/HBoxContainer/MusicVolume" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer/MusicVolume" to="Options/VBoxContainer/HBoxContainer/MusicVolume" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer/MusicVolume" to="Options/VBoxContainer/HBoxContainer/MusicVolume" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer2/SFXVolume" to="Options/VBoxContainer/HBoxContainer2/SFXVolume" method="_on_sfx_volume_value_changed"]
 [connection signal="toggled" from="Options/VBoxContainer/HBoxContainer3/FullscreenControl" to="Options/VBoxContainer/HBoxContainer3/FullscreenControl" method="_on_toggled"]
 [connection signal="pressed" from="Credits/Back" to="." method="_on_back_options_pressed"]

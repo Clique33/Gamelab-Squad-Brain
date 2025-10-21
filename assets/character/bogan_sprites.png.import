@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bs2aoytl33ntq"
-path="res://.godot/imported/bogan_sprites.png-ec177730dbb5fca6f179923c48a01678.ctex"
+path="res://.godot/imported/bogan_sprites.png-de9e15bc41796d8a65e42ec3242a69b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/bogan_sprites.png"
-dest_files=["res://.godot/imported/bogan_sprites.png-ec177730dbb5fca6f179923c48a01678.ctex"]
+source_file="res://Assets/character/bogan_sprites.png"
+dest_files=["res://.godot/imported/bogan_sprites.png-de9e15bc41796d8a65e42ec3242a69b0.ctex"]
 
 [params]
 
