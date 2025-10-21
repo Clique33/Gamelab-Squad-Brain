@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjiswug3vccev"]
+[gd_scene load_steps=10 format=3 uid="uid://bjiswug3vccev"]
 
 [ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://assets/ui/tutorial-lab.png" id="1_nco72"]
 [ext_resource type="Script" uid="uid://bc8wv8flx3cbe" path="res://scripts/hit_pop.gd" id="2_nbyx5"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="3_pbvho"]
+[ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="4_oq8ra"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbvho"]
 bg_color = Color(0.0392157, 0.0352941, 0.0980392, 1)
@@ -63,5 +64,10 @@ dialog_texts = Array[String](["Finalmente!", "Com esse ultimo teste o protótipo
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pop_up/hit_pop"]
 position = Vector2(7, -100)
 shape = SubResource("RectangleShape2D_oq8ra")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("4_oq8ra")]
+visible = false
 
 [connection signal="body_entered" from="pop_up/hit_pop" to="pop_up/hit_pop" method="_on_body_entered"]
