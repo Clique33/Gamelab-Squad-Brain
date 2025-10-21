@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cgp03v0buibmb"
-path="res://.godot/imported/Pixel 1.mp3-9560fbafac353ecd0ab13f99ff1d403d.mp3str"
+path="res://.godot/imported/Pixel 1.mp3-4f2fb1fe5446ab9d102bb26e35e6be7f.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/menu_sounds/Pixel 1.mp3"
-dest_files=["res://.godot/imported/Pixel 1.mp3-9560fbafac353ecd0ab13f99ff1d403d.mp3str"]
+source_file="res://Assets/sounds/menu_sounds/Pixel 1.mp3"
+dest_files=["res://.godot/imported/Pixel 1.mp3-4f2fb1fe5446ab9d102bb26e35e6be7f.mp3str"]
 
 [params]
 

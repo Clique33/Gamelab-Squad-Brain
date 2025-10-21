@@ -60,3 +60,9 @@ offset_bottom = 45.0
 value = 100.0
 texture_under = SubResource("GradientTexture2D_pfayn")
 texture_progress = SubResource("GradientTexture2D_bjr08")
+
+[node name="VictoryCounter" type="Label" parent="CanvasLayer"]
+offset_left = 222.0
+offset_top = 7.0
+offset_right = 275.0
+offset_bottom = 41.0
