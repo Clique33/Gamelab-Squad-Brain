@@ -6,6 +6,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	TransitionScene.first_fade()
+	
 	main_buttons.visible = true
 	
 	options.visible = false
@@ -13,13 +15,9 @@ func _ready() -> void:
 	credits.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/lab_inicial.tscn")
+	TransitionScene.change_scene("res://scenes/lab_inicial.tscn")
+
 
 func _on_options_pressed() -> void:
 	main_buttons.visible = false
@@ -27,7 +25,11 @@ func _on_options_pressed() -> void:
 	
 	
 func _on_back_options_pressed() -> void:
-	_ready()
+	main_buttons.visible = true
+	
+	options.visible = false
+	
+	credits.visible = false
 	
 	
 func _on_credits_pressed() -> void:

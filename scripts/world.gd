@@ -36,6 +36,6 @@ func change_scene(change_to: String) -> void:
 	
 	match change_to:
 		"montain":
-			get_tree().change_scene_to_file("res://scenes/cave_montain.tscn")
+			TransitionScene.change_scene("res://scenes/cave_montain.tscn")
 		"plaines":
-			get_tree().change_scene_to_file("res://scenes/cave_plaines.tscn")
+			TransitionScene.change_scene("res://scenes/cave_plaines.tscn")

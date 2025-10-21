@@ -67,4 +67,4 @@ func _on_dialog_finished() -> void:
 	
 	get_tree().paused = false
 	
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	TransitionScene.change_scene("res://scenes/world.tscn")
