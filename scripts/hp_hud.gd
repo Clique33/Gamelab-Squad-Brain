@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var hp_bar = $CanvasLayer/hp_bar
 @onready var energy_bar = $CanvasLayer/energy_bar
-@onready var VictoryCountersd: Label = $CanvasLayer/VictoryCounter
+@onready var VictoryCounter: Label = $CanvasLayer/VictoryCounter
 
 
 func energy_bar_update(value: int):
