@@ -6,10 +6,13 @@ var current_scene: String = "world"
 @onready var hp_hud: Node2D = $Environment/hp_hud
 
 @onready var block_cave_plaines: TileMapLayer = $Environment/Caves/CavePlaines/BlockCavePlaines
+@onready var block_cave_montain: TileMapLayer = $Environment/Caves/CaveMontain/BlockCaveMontain
 
 
 func _ready() -> void:
 	if Global.block_cave_plaines:
+		player.position = Global.last_world_positioin + Vector2(0, 24)
+	elif Global.block_cave_montains:
 		player.position = Global.last_world_positioin + Vector2(0, 24)
 	elif Global.last_world_positioin != Vector2.ZERO:
 		player.position = Global.last_world_positioin + Vector2(0, 2)
@@ -22,6 +25,9 @@ func _ready() -> void:
 		
 	if Global.block_cave_plaines:
 		block_cave_plaines.enabled = true
+	
+	if Global.block_cave_montains:
+		block_cave_montain.enabled = true
 
 
 func _process(delta: float) -> void:

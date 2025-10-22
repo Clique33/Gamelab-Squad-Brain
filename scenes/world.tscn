@@ -349,9 +349,8 @@ position = Vector2(400, -207)
 shape = SubResource("RectangleShape2D_4mrxx")
 
 [node name="BlockCaveMontain" type="TileMapLayer" parent="Environment/Caves/CaveMontain"]
-z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAXAPP/AAACAAMAAAAYAPL/AAACAAMAAAAYAPP/AAACAAMAAAAZAPL/AAACAAMAAAAZAPP/AAACAAMAAAAaAPP/AAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAYAPP/AAACAAMAAAAZAPP/AAACAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_iywne")
 
@@ -362,14 +361,13 @@ position = Vector2(992, 227)
 shape = SubResource("RectangleShape2D_4mrxx")
 
 [node name="BlockCavePlaines" type="TileMapLayer" parent="Environment/Caves/CavePlaines"]
-z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAA+AA4AAAACAAMAAAA9AA4AAAACAAMAAAA/AA8AAAACAAMAAAA+AA8AAAACAAMAAAA9AA8AAAACAAMAAAA8AA8AAAACAAMAAAA=")
 enabled = false
 tile_set = SubResource("TileSet_iywne")
 
 [node name="Player" parent="Environment" instance=ExtResource("6_q5onr")]
-position = Vector2(334, 323)
+position = Vector2(335, 326)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Player"]
 visible = false
