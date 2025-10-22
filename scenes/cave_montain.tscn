@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=4 uid="uid://dj0maryn3kk6p"]
 
 [ext_resource type="Script" uid="uid://dej6pbeq3xxy8" path="res://scripts/cave_montain.gd" id="1_473so"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="2_bimve"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="3_5r1tx"]
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_bimve"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_5r1tx"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_b3yv3"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_8j45y"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_ww0yo"]
@@ -332,6 +332,8 @@ size = Vector2(47, 12.75)
 
 [node name="CaveMontain" type="Node2D"]
 script = ExtResource("1_473so")
+metadata/_edit_horizontal_guides_ = [160.0, 302.0]
+metadata/_edit_vertical_guides_ = [180.0, 410.0]
 
 [node name="Enviroment" type="Node2D" parent="."]
 
@@ -357,11 +359,17 @@ position = Vector2(383, 223)
 
 [node name="DroneMelee" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
 position = Vector2(-176, -3)
+max_position = Vector2(410, 300)
+min_position = Vector2(180, 160)
 
 [node name="DroneMelee2" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
+max_position = Vector2(410, 300)
+min_position = Vector2(180, 160)
 
 [node name="DroneMelee3" parent="Enviroment/enemies" instance=ExtResource("8_b3yv3")]
 position = Vector2(-92, -48)
+max_position = Vector2(410, 300)
+min_position = Vector2(180, 160)
 
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_b3yv3")]
 position = Vector2(355, 301)
