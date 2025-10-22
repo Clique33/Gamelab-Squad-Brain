@@ -369,7 +369,7 @@ enabled = false
 tile_set = SubResource("TileSet_iywne")
 
 [node name="Player" parent="Environment" instance=ExtResource("6_q5onr")]
-position = Vector2(335, 325)
+position = Vector2(334, 323)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Player"]
 visible = false
