@@ -6,6 +6,7 @@ extends Node2D
 var current_scene: String = "cave_plaines"
 var change_scene: bool = false
 
+var victory_point: bool = false
 
 func _ready() -> void:
 	hp_hud._on_health_update(Global.health)
@@ -16,10 +17,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if get_tree().get_nodes_in_group("Enemy").size() == 0:
+	if get_tree().get_nodes_in_group("Enemy").size() == 0 and !victory_point:
 		Global.block_cave_plaines = true
 		
-		Global.victories = 1
+		Global.victories += 1
+		
+		victory_point = true
 
 
 func _on_world_plaines_body_entered(body: Node2D) -> void:
