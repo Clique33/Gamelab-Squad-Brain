@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dj0maryn3kk6p"]
+[gd_scene load_steps=14 format=4 uid="uid://dj0maryn3kk6p"]
 
 [ext_resource type="Script" uid="uid://dej6pbeq3xxy8" path="res://scripts/cave_montain.gd" id="1_473so"]
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_bimve"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_b3yv3"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_8j45y"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_ww0yo"]
+[ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="7_bimve"]
+[ext_resource type="AudioStream" uid="uid://dwiae31iby0ar" path="res://assets/sounds/menu_sounds/Pixel 5.mp3" id="8_5r1tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2l0f"]
 texture = ExtResource("2_bimve")
@@ -343,6 +345,11 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAYAPD/AAAEAAQAAAAZAPD/AAACAAMAAAAaAPD/AAAEAAQAAAAqAO3/AAACAAEAAAALABIAAAAEAAMAAAAMABAAAAAEAAMAAAAPABIAAAAEAAMAAAAZAAoAAAACAAMAAAAXAAoAAAACAAMAAAAYAAoAAAACAAMAAAAYAAsAAAACAAMAAAASAA0AAAAEAAQAAAATAA4AAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_ip074")
 
+[node name="DroneMelee" parent="Enviroment" instance=ExtResource("7_bimve")]
+position = Vector2(249, 197)
+max_position = Vector2(418, 310)
+min_position = Vector2(172, 155)
+
 [node name="WorldMontainTop" type="Area2D" parent="Enviroment"]
 position = Vector2(297, 319)
 
@@ -369,5 +376,9 @@ position_smoothing_enabled = true
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("6_ww0yo")]
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_5r1tx")
+autoplay = true
 
 [connection signal="body_entered" from="Enviroment/WorldMontainTop" to="." method="_on_world_montain_top_body_entered"]

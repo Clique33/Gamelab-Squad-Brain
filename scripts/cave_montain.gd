@@ -14,6 +14,14 @@ func _ready() -> void:
 	hp_hud._on_energy_update(Global.energy)
 	player.energy = Global.energy
 
+
+func _process(delta: float) -> void:
+	if get_tree().get_nodes_in_group("Enemy").size() == 0:
+		Global.block_cave_montains = true
+		
+		Global.victories = 1
+
+
 func _on_world_montain_top_body_entered(body: Node2D) -> void:
 	Global.health = player.health
 	
