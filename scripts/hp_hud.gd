@@ -22,4 +22,4 @@ func _on_energy_update(new_energy: float) -> void:
 
 
 func _process(delta: float) -> void:
-	VictoryCounter.text = "%d / 3" % Global.victories
+	VictoryCounter.text = "%d / 2" % Global.victories

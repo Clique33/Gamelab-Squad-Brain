@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5kcbj13okxyx"]
+[gd_scene load_steps=11 format=3 uid="uid://c5kcbj13okxyx"]
 
 [ext_resource type="Script" uid="uid://v0hsdri215by" path="res://scripts/ui/endgame_screen.gd" id="1_s7nbu"]
-[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://Assets/UI/tutorial-lab.png" id="2_cbsht"]
-[ext_resource type="FontFile" uid="uid://neecrem67in6" path="res://Assets/fonts/CyberpunkCraftpixPixel.otf" id="2_vrvio"]
-[ext_resource type="AudioStream" uid="uid://cgp03v0buibmb" path="res://Assets/sounds/menu_sounds/Pixel 1.mp3" id="4_us64b"]
+[ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://assets/ui/tutorial-lab.png" id="2_cbsht"]
+[ext_resource type="FontFile" uid="uid://neecrem67in6" path="res://assets/fonts/CyberpunkCraftpixPixel.otf" id="2_vrvio"]
+[ext_resource type="AudioStream" uid="uid://cgp03v0buibmb" path="res://assets/sounds/menu_sounds/Pixel 1.mp3" id="4_us64b"]
+[ext_resource type="AudioStream" uid="uid://8j16is6xypvs" path="res://assets/sounds/menu_sounds/Pixel 7.mp3" id="5_nrxms"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us64b"]
 texture = ExtResource("2_cbsht")
@@ -151,9 +152,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Exit"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_us64b")
 autoplay = true
+bus = &"Music"
+
+[node name="VictoryMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nrxms")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="PauseButtons/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PauseButtons/Exit" to="." method="_on_exit_pressed"]

@@ -3,8 +3,20 @@ extends Control
 @onready var victory_title: Label = $VictoryTitle
 @onready var death_title: Label = $DeathTitle
 
+@onready var death_music: AudioStreamPlayer2D = $DeathMusic
+@onready var victory_music: AudioStreamPlayer2D = $VictoryMusic
+
+
 func _ready() -> void:
 	victory_title.visible = false
+	victory_music.stop()
+	
+	if Global.victories == 1:
+		death_music.stop()
+		
+		victory_music.play()
+		
+		endgame_victory()
 	
 
 func endgame_victory() -> void:

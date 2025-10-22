@@ -5,16 +5,28 @@ var current_scene: String = "world"
 @onready var player: CharacterBody2D = $Environment/Player
 @onready var hp_hud: Node2D = $Environment/hp_hud
 
+@onready var block_cave_plaines: TileMapLayer = $Environment/Caves/CavePlaines/BlockCavePlaines
+
 
 func _ready() -> void:
-	if Global.last_world_positioin != Vector2.ZERO:
+	if Global.block_cave_plaines:
+		player.position = Global.last_world_positioin + Vector2(0, 24)
+	elif Global.last_world_positioin != Vector2.ZERO:
 		player.position = Global.last_world_positioin + Vector2(0, 2)
-		
+	
 		hp_hud._on_health_update(Global.health)
 		player.health = Global.health
 		
 		hp_hud._on_energy_update(Global.energy)
 		player.energy = Global.energy
+		
+	if Global.block_cave_plaines:
+		block_cave_plaines.enabled = true
+
+
+func _process(delta: float) -> void:
+	if Global.victories == 2:
+		TransitionScene.change_scene("res://scenes/ui/endgame_screen.tscn")
 
 
 func _on_cave_montain_body_entered(body: Node2D) -> void:
