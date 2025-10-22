@@ -560,7 +560,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 4.0
-height = 14.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mc0om"]
 radius = 3.0
@@ -747,8 +747,7 @@ animation = &"idle_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 1)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Sword" type="Node2D" parent="."]
