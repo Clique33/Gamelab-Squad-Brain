@@ -30,6 +30,8 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var knockback_direction: Vector2 = Vector2.ZERO
 
+@onready var drop_item: DropItem = $DropItem
+
 
 func _ready() -> void:
 	add_to_group("Enemy")
@@ -198,4 +200,8 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "magpie_die":
+		if drop_item.item_drop.size() > 0:
+			drop_item._fix_item_drop_arrays()
+			
+			drop_item._drop_item()
 		queue_free()

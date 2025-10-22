@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://2gsqbp63mciw"]
+[gd_scene load_steps=41 format=3 uid="uid://2gsqbp63mciw"]
 
 [ext_resource type="Script" uid="uid://j734hducc7g2" path="res://scripts/enemy/drone_melee.gd" id="1_dcoha"]
 [ext_resource type="Texture2D" uid="uid://4innee08rhoc" path="res://assets/enemy/enemy drones/elec_drone_atk.png" id="2_dcoha"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bj3ablleshg0y" path="res://assets/enemy/enemy drones/elec_drone_charging.png" id="3_v52ds"]
 [ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="4_7juch"]
 [ext_resource type="Texture2D" uid="uid://eqiqnfv5uk2g" path="res://assets/enemy/enemy drones/elec_drone_idle.png" id="4_dcoha"]
+[ext_resource type="Script" uid="uid://b2wt5876yigsh" path="res://scripts/itens/drop_item.gd" id="7_sbyoj"]
+[ext_resource type="PackedScene" uid="uid://btgem6t5njodn" path="res://scenes/itens/energy_gem.tscn" id="8_kjbmo"]
+[ext_resource type="PackedScene" uid="uid://djjnr6veblc63" path="res://scenes/itens/health_gem.tscn" id="9_1xli0"]
+[ext_resource type="Texture2D" uid="uid://dmgcogjh3wh8w" path="res://assets/enemy/Shadow.png" id="10_1xli0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7juch"]
 atlas = ExtResource("2_dcoha")
@@ -267,6 +271,17 @@ fill_mode = 1
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DropItem" type="Node2D" parent="."]
+script = ExtResource("7_sbyoj")
+item_drop = Array[PackedScene]([ExtResource("8_kjbmo"), ExtResource("9_1xli0")])
+item_drop_chances = Array[float]([30.0, 30.0, 40.0])
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 15
+z_as_relative = false
+position = Vector2(-1, 4)
+texture = ExtResource("10_1xli0")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_entered"]

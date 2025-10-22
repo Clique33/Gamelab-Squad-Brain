@@ -7,11 +7,10 @@ extends Control
 func _ready() -> void:
 	pause_menu.visible = false
 	
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause") and get_tree().paused == false:
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and get_tree().paused == false:
 		pause()
-	elif Input.is_action_just_pressed("pause") and get_tree().paused == true:
+	elif event.is_action_pressed("pause") and get_tree().paused == true:
 		resume()
 
 

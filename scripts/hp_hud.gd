@@ -4,13 +4,22 @@ extends Node2D
 @onready var energy_bar = $CanvasLayer/energy_bar
 @onready var VictoryCounter: Label = $CanvasLayer/VictoryCounter
 
-
-func energy_bar_update(value: int):
-	energy_bar.value = value
+@onready var player: CharacterBody2D = $"../Player"
 
 
-func hp_bar_update(value: int) -> void:
-	hp_bar.value = value
+func _ready() -> void:
+	player.emit_health_update.connect(_on_health_update)
+	
+	player.emit_energy_update.connect(_on_energy_update)
+
+
+func _on_health_update(new_health: float) -> void:
+	hp_bar.value = new_health
+
+
+func _on_energy_update(new_energy: float) -> void:
+	energy_bar.value = new_energy
+
 
 func _process(delta: float) -> void:
 	VictoryCounter.text = "%d / 3" % Global.victories

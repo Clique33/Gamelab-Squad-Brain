@@ -1,0 +1,171 @@
+[gd_scene load_steps=13 format=3 uid="uid://btgem6t5njodn"]
+
+[ext_resource type="Script" uid="uid://dl1ygqjrmm2c6" path="res://scripts/itens/energy_gem.gd" id="1_bmfj1"]
+[ext_resource type="Texture2D" uid="uid://dqjk8mss46ji4" path="res://assets/itens/spr_coin_azu.png" id="2_h2pvw"]
+[ext_resource type="AudioStream" uid="uid://fcsporqbn2ve" path="res://assets/sounds/coin.wav" id="2_l5ocl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmfj1"]
+atlas = ExtResource("2_h2pvw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xktt5"]
+atlas = ExtResource("2_h2pvw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2pvw"]
+atlas = ExtResource("2_h2pvw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7yh5"]
+atlas = ExtResource("2_h2pvw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0x3am"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmfj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xktt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2pvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7yh5")
+}],
+"loop": true,
+"name": &"energy_gem",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xktt5"]
+radius = 3.13426
+
+[sub_resource type="Animation" id="Animation_l5ocl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PickupSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bmfj1"]
+resource_name = "pick_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PickupSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xktt5"]
+_data = {
+&"RESET": SubResource("Animation_l5ocl"),
+&"pick_up": SubResource("Animation_bmfj1")
+}
+
+[node name="EnergyGem" type="Area2D"]
+z_index = 10
+script = ExtResource("1_bmfj1")
+energy = 20.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.280769, -0.280769)
+scale = Vector2(0.589904, 0.589904)
+sprite_frames = SubResource("SpriteFrames_0x3am")
+animation = &"energy_gem"
+autoplay = "energy_gem"
+frame = 2
+frame_progress = 0.49891
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(0.957163, 1)
+shape = SubResource("CircleShape2D_xktt5")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_l5ocl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xktt5")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

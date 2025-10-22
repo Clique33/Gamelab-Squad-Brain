@@ -32,6 +32,8 @@ var knockback_direction: Vector2 = Vector2.ZERO
 
 @onready var timer: Timer = $Timer
 
+@onready var drop_item: DropItem = $DropItem
+
 
 func _ready() -> void:
 	add_to_group("Enemy")
@@ -197,6 +199,10 @@ func update_health(value: int) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "drone_die":
+		if drop_item.item_drop.size() > 0:
+			drop_item._fix_item_drop_arrays()
+			
+			drop_item._drop_item()
 		queue_free()
 	elif animated_sprite_2d.animation == "drone_attack":
 		queue_free()

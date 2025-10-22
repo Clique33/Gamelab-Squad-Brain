@@ -10,10 +10,10 @@ func _ready() -> void:
 	if Global.last_world_positioin != Vector2.ZERO:
 		player.position = Global.last_world_positioin + Vector2(0, 2)
 		
-		hp_hud.hp_bar_update(Global.health)
+		hp_hud._on_health_update(Global.health)
 		player.health = Global.health
 		
-		hp_hud.energy_bar_update(Global.energy)
+		hp_hud._on_energy_update(Global.energy)
 		player.energy = Global.energy
 
 
