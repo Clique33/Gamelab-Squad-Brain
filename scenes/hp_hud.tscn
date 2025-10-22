@@ -1,12 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://k1ropq0cpja3"]
+[gd_scene load_steps=8 format=3 uid="uid://k1ropq0cpja3"]
 
 [ext_resource type="Script" uid="uid://mippqhbs0xft" path="res://scripts/hp_hud.gd" id="1_frt4s"]
 [ext_resource type="Texture2D" uid="uid://bupv0jp74y4bh" path="res://Assets/UI/texturas/ProgressBar_06/BarV6_Bar.png" id="2_70rmd"]
 [ext_resource type="Texture2D" uid="uid://blerfdh3by2r1" path="res://Assets/UI/texturas/ProgressBar_06/BarV6_ProgressBar.png" id="3_kdqo8"]
 [ext_resource type="Texture2D" uid="uid://b57wewlw7tlj8" path="res://Assets/UI/texturas/ProgressBar_08/BarV8_Bar.png" id="4_pfayn"]
-[ext_resource type="Texture2D" uid="uid://bouejcrr36cgp" path="res://Assets/UI/texturas/ProgressBar_08/BarV8_ProgressBar.png" id="5_s3tin"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_bjr08"]
+
+[sub_resource type="Gradient" id="Gradient_kdqo8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.121569, 0.698039, 0.67451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfayn"]
+gradient = SubResource("Gradient_kdqo8")
+width = 266
+height = 17
+fill_from = Vector2(1, 0)
 
 [node name="hp_hud" type="Node2D"]
 script = ExtResource("1_frt4s")
@@ -17,27 +26,26 @@ script = ExtResource("1_frt4s")
 anchors_preset = -1
 anchor_right = 0.174
 anchor_bottom = 0.046
-offset_right = 74.552
+offset_right = 69.552
 offset_bottom = -5.808
 value = 100.0
 texture_under = ExtResource("2_70rmd")
 texture_progress = ExtResource("3_kdqo8")
-texture_progress_offset = Vector2(3, 2)
+texture_progress_offset = Vector2(2, 2)
 
 [node name="energy_bar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_top = 0.046
 anchor_right = 0.174
 anchor_bottom = 0.069
-offset_left = 1.0
 offset_top = -8.808
-offset_right = 74.552
-offset_bottom = 1.288
-scale = Vector2(0.985, 0.6)
+offset_right = 69.552
+offset_bottom = -2.712
+scale = Vector2(1, 0.6)
 value = 100.0
 texture_under = ExtResource("4_pfayn")
 texture_over = SubResource("ImageTexture_bjr08")
-texture_progress = ExtResource("5_s3tin")
+texture_progress = SubResource("GradientTexture2D_pfayn")
 texture_progress_offset = Vector2(2, 2)
 
 [node name="VictoryCounter" type="Label" parent="CanvasLayer"]
