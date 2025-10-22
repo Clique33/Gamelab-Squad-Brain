@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://dj0maryn3kk6p"]
+[gd_scene load_steps=14 format=4 uid="uid://dj0maryn3kk6p"]
 
 [ext_resource type="Script" uid="uid://dej6pbeq3xxy8" path="res://scripts/cave_montain.gd" id="1_473so"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_bimve"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_5r1tx"]
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="2_bimve"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="3_5r1tx"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_b3yv3"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_8j45y"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_ww0yo"]
+[ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="7_5r1tx"]
+[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/enemy/drone_kamikaze.tscn" id="8_b3yv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2l0f"]
 texture = ExtResource("2_bimve")
@@ -349,6 +351,17 @@ position = Vector2(297, 319)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WorldMontainTop"]
 position = Vector2(-1, 7.625)
 shape = SubResource("RectangleShape2D_ywssb")
+
+[node name="enemies" type="Node2D" parent="Enviroment"]
+position = Vector2(383, 223)
+
+[node name="DroneMelee" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
+position = Vector2(-176, -3)
+
+[node name="DroneMelee2" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
+
+[node name="DroneMelee3" parent="Enviroment/enemies" instance=ExtResource("8_b3yv3")]
+position = Vector2(-92, -48)
 
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_b3yv3")]
 position = Vector2(355, 301)
