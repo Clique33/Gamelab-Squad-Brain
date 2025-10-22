@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dj0maryn3kk6p"]
+[gd_scene load_steps=16 format=4 uid="uid://dj0maryn3kk6p"]
 
 [ext_resource type="Script" uid="uid://dej6pbeq3xxy8" path="res://scripts/cave_montain.gd" id="1_473so"]
 [ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_bimve"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_b3yv3"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_8j45y"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_ww0yo"]
+[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/enemy/drone_kamikaze.tscn" id="7_8j45y"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="7_bimve"]
 [ext_resource type="AudioStream" uid="uid://dwiae31iby0ar" path="res://assets/sounds/menu_sounds/Pixel 5.mp3" id="8_5r1tx"]
+[ext_resource type="PackedScene" uid="uid://dl71k0s0b3pco" path="res://scenes/enemy/turret.tscn" id="8_ww0yo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2l0f"]
 texture = ExtResource("2_bimve")
@@ -332,8 +334,6 @@ size = Vector2(47, 12.75)
 
 [node name="CaveMontain" type="Node2D"]
 script = ExtResource("1_473so")
-metadata/_edit_horizontal_guides_ = [160.0, 302.0]
-metadata/_edit_vertical_guides_ = [180.0, 410.0]
 
 [node name="Enviroment" type="Node2D" parent="."]
 
@@ -347,34 +347,12 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAYAPD/AAAEAAQAAAAZAPD/AAACAAMAAAAaAPD/AAAEAAQAAAAqAO3/AAACAAEAAAALABIAAAAEAAMAAAAMABAAAAAEAAMAAAAPABIAAAAEAAMAAAAZAAoAAAACAAMAAAAXAAoAAAACAAMAAAAYAAoAAAACAAMAAAAYAAsAAAACAAMAAAASAA0AAAAEAAQAAAATAA4AAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_ip074")
 
-[node name="DroneMelee" parent="Enviroment" instance=ExtResource("7_bimve")]
-position = Vector2(249, 197)
-max_position = Vector2(418, 310)
-min_position = Vector2(172, 155)
-
 [node name="WorldMontainTop" type="Area2D" parent="Enviroment"]
 position = Vector2(297, 319)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WorldMontainTop"]
 position = Vector2(-1, 7.625)
 shape = SubResource("RectangleShape2D_ywssb")
-
-[node name="enemies" type="Node2D" parent="Enviroment"]
-position = Vector2(383, 223)
-
-[node name="DroneMelee" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
-position = Vector2(-176, -3)
-max_position = Vector2(410, 300)
-min_position = Vector2(180, 160)
-
-[node name="DroneMelee2" parent="Enviroment/enemies" instance=ExtResource("7_5r1tx")]
-max_position = Vector2(410, 300)
-min_position = Vector2(180, 160)
-
-[node name="DroneMelee3" parent="Enviroment/enemies" instance=ExtResource("8_b3yv3")]
-position = Vector2(-92, -48)
-max_position = Vector2(410, 300)
-min_position = Vector2(180, 160)
 
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_b3yv3")]
 position = Vector2(355, 301)
@@ -390,6 +368,26 @@ limit_top = 125
 limit_right = 488
 limit_bottom = 330
 position_smoothing_enabled = true
+
+[node name="Enemy" type="Node2D" parent="Enviroment"]
+
+[node name="Turret" parent="Enviroment/Enemy" instance=ExtResource("8_ww0yo")]
+position = Vector2(297, 176)
+
+[node name="DroneKamikaze" parent="Enviroment/Enemy" instance=ExtResource("7_8j45y")]
+position = Vector2(192, 164)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
+
+[node name="DroneMelee" parent="Enviroment/Enemy" instance=ExtResource("7_bimve")]
+position = Vector2(198, 224)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
+
+[node name="DroneMelee2" parent="Enviroment/Enemy" instance=ExtResource("7_bimve")]
+position = Vector2(394, 212)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
