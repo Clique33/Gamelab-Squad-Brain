@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 2000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var shadow: Sprite2D = $Shadow
 
 var last_direction: Vector2 = Vector2.ZERO
 var direction_change_timer: float = 0.0
@@ -24,7 +25,7 @@ var player_in_range = false
 @export var attack_basic: float
 var is_attacking: bool = false
 var attack_timer: float = 0.0 # Timer in seconds to damage player
-@export var attack_duration: float = 0.5
+@export var attack_duration: float
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
@@ -45,6 +46,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if health <= 0: # Skip animation update and kill the enemyrsr
+		shadow.visible = false
+		
 		animated_sprite_2d.play("drone_die")
 		
 		return

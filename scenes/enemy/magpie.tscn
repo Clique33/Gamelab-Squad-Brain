@@ -243,9 +243,9 @@ y_sort_enabled = true
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_7d178")
-health = 50.0
+health = 60.0
 attack_basic = -10.0
-attack_duration = 0.6
+attack_duration = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
@@ -276,11 +276,12 @@ shape = SubResource("CircleShape2D_lnmnu")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(0.721569, 1, 0.223529, 1)
+z_index = 5
 offset_left = -9.0
 offset_top = -14.0
 offset_right = 9.0
 offset_bottom = -10.0
-max_value = 50.0
+max_value = 60.0
 fill_mode = 1
 show_percentage = false
 
