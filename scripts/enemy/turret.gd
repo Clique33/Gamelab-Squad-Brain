@@ -26,6 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if health <= 0: # Skip animation update and kill the enemy
+		
 		gun_animated_sprite_2d.play("turret_die")
 		
 		return	

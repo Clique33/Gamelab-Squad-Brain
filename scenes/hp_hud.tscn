@@ -22,16 +22,15 @@ offset_bottom = -5.808
 value = 100.0
 texture_under = ExtResource("2_70rmd")
 texture_progress = ExtResource("3_kdqo8")
-texture_progress_offset = Vector2(3, 2)
+texture_progress_offset = Vector2(2, 2)
 
 [node name="energy_bar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_top = 0.046
 anchor_right = 0.174
 anchor_bottom = 0.069
-offset_left = 1.0
 offset_top = -8.808
-offset_right = 74.552
+offset_right = 73.552
 offset_bottom = 1.288
 scale = Vector2(0.985, 0.6)
 value = 100.0
