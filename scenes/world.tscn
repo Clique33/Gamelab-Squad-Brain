@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=4 uid="uid://c3y2m77wrvop3"]
 
 [ext_resource type="Script" uid="uid://bjpispfwysjyp" path="res://scripts/world.gd" id="1_7r4gi"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="1_i7141"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="2_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="1_i7141"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="2_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://c3x1vxodv8c7d" path="res://scenes/enemy/magpie.tscn" id="3_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="4_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/enemy/drone_kamikaze.tscn" id="5_4mrxx"]
