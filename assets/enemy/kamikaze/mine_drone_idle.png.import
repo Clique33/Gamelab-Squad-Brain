@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://10amda4fnp62"
-path="res://.godot/imported/mine_drone_idle.png-a573af79ddf142160044a80ac03a4c5c.ctex"
+path="res://.godot/imported/mine_drone_idle.png-9f3c9665569cbda5ace4f73f1d63ec47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy/kamikaze/mine_drone_idle.png"
-dest_files=["res://.godot/imported/mine_drone_idle.png-a573af79ddf142160044a80ac03a4c5c.ctex"]
+source_file="res://assets/enemy/kamikaze/mine_drone_idle.png"
+dest_files=["res://.godot/imported/mine_drone_idle.png-9f3c9665569cbda5ace4f73f1d63ec47.ctex"]
 
 [params]
 
