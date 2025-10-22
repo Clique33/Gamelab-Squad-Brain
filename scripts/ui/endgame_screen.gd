@@ -11,13 +11,18 @@ func _ready() -> void:
 	victory_title.visible = false
 	victory_music.stop()
 	
-	if Global.victories == 1:
+	if Global.victories >= 2:
 		death_music.stop()
 		
 		victory_music.play()
 		
 		endgame_victory()
+		
+		main_menu()
 	
+	Global.energy = 100
+	
+	Global.health = 100
 
 func endgame_victory() -> void:
 	death_title.visible = false
@@ -30,3 +35,13 @@ func _on_main_menu_pressed() -> void:
 	
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+func main_menu() -> void:
+	Global.last_world_positioin = Vector2.ZERO
+	
+	Global.health = 100
+	Global.energy = 100
+	Global.victories = 0
+
+	Global.block_cave_plaines = false
+	Global.block_cave_montains = false

@@ -24,14 +24,21 @@ func _ready() -> void:
 		player.energy = Global.energy
 		
 	if Global.block_cave_plaines:
+		if !block_cave_plaines.enabled:
+			Global.victories += 1
+		print("plain")
 		block_cave_plaines.enabled = true
+
 	
 	if Global.block_cave_montains:
+		if !block_cave_montain.enabled:
+			Global.victories += 1
+		print("mount")
 		block_cave_montain.enabled = true
 
 
 func _process(delta: float) -> void:
-	if Global.victories == 2:
+	if Global.block_cave_montains and Global.block_cave_plaines:
 		TransitionScene.change_scene("res://scenes/ui/endgame_screen.tscn")
 
 
