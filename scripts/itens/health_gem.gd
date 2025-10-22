@@ -7,5 +7,5 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	animation_player.play("pick_up")
 	
-	if body != null:
+	if body.name == "Player":
 		body.update_health(health)
