@@ -1,0 +1,270 @@
+[gd_scene load_steps=34 format=3 uid="uid://bypfvgixu17or"]
+
+[ext_resource type="Script" uid="uid://j734hducc7g2" path="res://scripts/enemy/drone_melee.gd" id="1_smqe5"]
+[ext_resource type="Texture2D" uid="uid://b64o2sjd4qgkr" path="res://assets/enemy/robonaut/Attack_Death.png" id="2_tggg4"]
+[ext_resource type="Texture2D" uid="uid://c876hhbd1powv" path="res://assets/enemy/robonaut/Idle_Fly.png" id="3_0k3a2"]
+[ext_resource type="Script" uid="uid://b2wt5876yigsh" path="res://scripts/itens/drop_item.gd" id="7_emrsc"]
+[ext_resource type="PackedScene" uid="uid://btgem6t5njodn" path="res://scenes/itens/energy_gem.tscn" id="8_au0xg"]
+[ext_resource type="PackedScene" uid="uid://djjnr6veblc63" path="res://scenes/itens/health_gem.tscn" id="9_iotye"]
+[ext_resource type="Texture2D" uid="uid://dmgcogjh3wh8w" path="res://assets/enemy/Shadow.png" id="10_j0oy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i3sc"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smqe5"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffiyi"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vck6"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l70dx"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07ukc"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl716"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emrsc"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au0xg"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(576, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotye"]
+atlas = ExtResource("2_tggg4")
+region = Rect2(672, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0oy7"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n0om"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftryn"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox20l"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjiyu"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0fi1"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqevb"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn64v"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8akaf"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7xa0"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abfxm"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_580sy"]
+atlas = ExtResource("3_0k3a2")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mucbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i3sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smqe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smqe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smqe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smqe5")
+}],
+"loop": false,
+"name": &"drone_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffiyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vck6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l70dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07ukc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl716")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emrsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au0xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotye")
+}],
+"loop": false,
+"name": &"drone_die",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0oy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n0om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftryn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox20l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjiyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0fi1")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqevb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn64v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8akaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7xa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abfxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_580sy")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcoha"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7d178"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnmnu"]
+radius = 38.0
+
+[node name="DroneMelee" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_smqe5")
+health = 60.0
+attack_basic = -10.0
+attack_duration = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.875, 0.875)
+sprite_frames = SubResource("SpriteFrames_mucbb")
+animation = &"drone_attack"
+autoplay = "move_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_dcoha")
+
+[node name="DroneMeleeHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DroneMeleeHitbox"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_7d178")
+
+[node name="Territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
+shape = SubResource("CircleShape2D_lnmnu")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.721569, 1, 0.223529, 1)
+z_index = 5
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = -10.0
+max_value = 60.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="DropItem" type="Node2D" parent="."]
+script = ExtResource("7_emrsc")
+item_drop = Array[PackedScene]([ExtResource("8_au0xg"), ExtResource("9_iotye")])
+item_drop_chances = Array[float]([30.0, 30.0, 40.0])
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 15
+z_as_relative = false
+position = Vector2(-1, 4)
+texture = ExtResource("10_j0oy7")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_entered"]
+[connection signal="body_exited" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_exited"]
+[connection signal="body_entered" from="Territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="Territory" to="." method="_on_territory_body_exited"]

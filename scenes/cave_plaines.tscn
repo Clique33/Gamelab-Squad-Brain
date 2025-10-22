@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=4 uid="uid://ct2waiut1cbuq"]
 
 [ext_resource type="Script" uid="uid://dnhhyi80rx062" path="res://scripts/cave_plaines.gd" id="1_yhu06"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_6q80b"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_yx5th"]
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="2_6q80b"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="3_yx5th"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_luo0g"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_2nwp1"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="5_6q80b"]
@@ -350,6 +350,17 @@ position = Vector2(297, 319)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WorldPlaines"]
 position = Vector2(-1, 7.625)
 shape = SubResource("RectangleShape2D_ywssb")
+
+[node name="inimigos" type="Node2D" parent="Enviroment"]
+
+[node name="Magpie" parent="Enviroment/inimigos" instance=ExtResource("7_yx5th")]
+position = Vector2(205, 216)
+
+[node name="Magpie2" parent="Enviroment/inimigos" instance=ExtResource("7_yx5th")]
+position = Vector2(380, 214)
+
+[node name="DroneMelee" parent="Enviroment/inimigos" instance=ExtResource("8_luo0g")]
+position = Vector2(295, 194)
 
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_luo0g")]
 position = Vector2(355, 301)
