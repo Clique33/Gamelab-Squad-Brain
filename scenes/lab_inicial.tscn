@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjiswug3vccev"]
+[gd_scene load_steps=11 format=3 uid="uid://bjiswug3vccev"]
 
 [ext_resource type="Texture2D" uid="uid://bok5k5tu748p2" path="res://assets/ui/tutorial-lab.png" id="1_nco72"]
 [ext_resource type="Script" uid="uid://bc8wv8flx3cbe" path="res://scripts/hit_pop.gd" id="2_nbyx5"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="3_pbvho"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="4_oq8ra"]
+[ext_resource type="AudioStream" uid="uid://dw8xliu00wjfh" path="res://assets/sounds/menu_sounds/Pixel 11.mp3" id="5_tr5sr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbvho"]
 bg_color = Color(0.0392157, 0.0352941, 0.0980392, 1)
@@ -45,7 +46,7 @@ tile_set = SubResource("TileSet_skxu7")
 
 [node name="Player" parent="." instance=ExtResource("3_pbvho")]
 position = Vector2(8, 451)
-scale = Vector2(8, 8)
+scale = Vector2(7, 7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -69,5 +70,9 @@ shape = SubResource("RectangleShape2D_oq8ra")
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("4_oq8ra")]
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tr5sr")
+autoplay = true
 
 [connection signal="body_entered" from="pop_up/hit_pop" to="pop_up/hit_pop" method="_on_body_entered"]

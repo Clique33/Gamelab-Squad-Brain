@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://ct2waiut1cbuq"]
+[gd_scene load_steps=15 format=4 uid="uid://ct2waiut1cbuq"]
 
 [ext_resource type="Script" uid="uid://dnhhyi80rx062" path="res://scripts/cave_plaines.gd" id="1_yhu06"]
-[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://Assets/tiles/forest_/forest_.png" id="2_6q80b"]
-[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://Assets/tiles/forest_/forest_ [resources].png" id="3_yx5th"]
+[ext_resource type="Texture2D" uid="uid://cct5v5m7gtxxu" path="res://assets/tiles/forest_/forest_.png" id="2_6q80b"]
+[ext_resource type="Texture2D" uid="uid://b885e5kqrvr3w" path="res://assets/tiles/forest_/forest_ [resources].png" id="3_yx5th"]
 [ext_resource type="PackedScene" uid="uid://k1ropq0cpja3" path="res://scenes/hp_hud.tscn" id="4_luo0g"]
 [ext_resource type="PackedScene" uid="uid://mdocp85nn4l6" path="res://scenes/player.tscn" id="5_2nwp1"]
 [ext_resource type="PackedScene" uid="uid://2gsqbp63mciw" path="res://scenes/enemy/drone_melee.tscn" id="5_6q80b"]
+[ext_resource type="PackedScene" uid="uid://cgvsbebk6g1ur" path="res://scenes/enemy/drone_kamikaze.tscn" id="6_luo0g"]
 [ext_resource type="PackedScene" uid="uid://2umdypkr8884" path="res://scenes/ui/pause_menu.tscn" id="6_w2tr3"]
 [ext_resource type="AudioStream" uid="uid://dwiae31iby0ar" path="res://assets/sounds/menu_sounds/Pixel 5.mp3" id="8_yx5th"]
 
@@ -351,24 +352,8 @@ position = Vector2(297, 319)
 position = Vector2(-1, 7.625)
 shape = SubResource("RectangleShape2D_ywssb")
 
-[node name="inimigos" type="Node2D" parent="Enviroment"]
-
-[node name="Magpie" parent="Enviroment/inimigos" instance=ExtResource("7_yx5th")]
-position = Vector2(205, 216)
-
-[node name="Magpie2" parent="Enviroment/inimigos" instance=ExtResource("7_yx5th")]
-position = Vector2(380, 214)
-
-[node name="DroneMelee" parent="Enviroment/inimigos" instance=ExtResource("8_luo0g")]
-position = Vector2(295, 194)
-
 [node name="hp_hud" parent="Enviroment" instance=ExtResource("4_luo0g")]
 position = Vector2(355, 301)
-
-[node name="DroneMelee" parent="Enviroment" instance=ExtResource("5_6q80b")]
-position = Vector2(230, 219)
-max_position = Vector2(418, 308)
-min_position = Vector2(172, 156)
 
 [node name="Player" parent="Enviroment" instance=ExtResource("5_2nwp1")]
 position = Vector2(296, 309)
@@ -381,6 +366,28 @@ limit_top = 125
 limit_right = 488
 limit_bottom = 330
 position_smoothing_enabled = true
+
+[node name="Enemy" type="Node2D" parent="Enviroment"]
+
+[node name="DroneKamikaze" parent="Enviroment/Enemy" instance=ExtResource("6_luo0g")]
+position = Vector2(192, 164)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
+
+[node name="DroneKamikaze2" parent="Enviroment/Enemy" instance=ExtResource("6_luo0g")]
+position = Vector2(363, 167)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
+
+[node name="DroneMelee" parent="Enviroment/Enemy" instance=ExtResource("5_6q80b")]
+position = Vector2(198, 224)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
+
+[node name="DroneMelee2" parent="Enviroment/Enemy" instance=ExtResource("5_6q80b")]
+position = Vector2(394, 212)
+max_position = Vector2(420, 309)
+min_position = Vector2(172, 156)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
