@@ -1,8 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://c3x1vxodv8c7d"]
+[gd_scene load_steps=40 format=3 uid="uid://c3x1vxodv8c7d"]
 
 [ext_resource type="Script" uid="uid://bxf87dr5k8lj5" path="res://scripts/enemy/magpie.gd" id="1_7d178"]
 [ext_resource type="Texture2D" uid="uid://dv4a7s5loimcr" path="res://assets/enemy/magpie.png" id="1_8rm5r"]
 [ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="3_lnmnu"]
+[ext_resource type="Script" uid="uid://b2wt5876yigsh" path="res://scripts/itens/drop_item.gd" id="4_gnys7"]
+[ext_resource type="PackedScene" uid="uid://btgem6t5njodn" path="res://scenes/itens/energy_gem.tscn" id="5_psc2v"]
+[ext_resource type="PackedScene" uid="uid://djjnr6veblc63" path="res://scenes/itens/health_gem.tscn" id="6_8c4rb"]
+[ext_resource type="Texture2D" uid="uid://dmgcogjh3wh8w" path="res://assets/enemy/Shadow.png" id="7_psc2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7d178"]
 atlas = ExtResource("1_8rm5r")
@@ -279,6 +283,17 @@ offset_bottom = -10.0
 max_value = 50.0
 fill_mode = 1
 show_percentage = false
+
+[node name="DropItem" type="Node2D" parent="."]
+script = ExtResource("4_gnys7")
+item_drop = Array[PackedScene]([ExtResource("5_psc2v"), ExtResource("6_8c4rb")])
+item_drop_chances = Array[float]([30.0, 30.0, 40.0])
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 15
+z_as_relative = false
+position = Vector2(-1, 4)
+texture = ExtResource("7_psc2v")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="MagpieHitbox" to="." method="_on_magpie_hitbox_body_entered"]

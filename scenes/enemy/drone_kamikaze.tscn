@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cgvsbebk6g1ur"]
+[gd_scene load_steps=43 format=3 uid="uid://cgvsbebk6g1ur"]
 
 [ext_resource type="Script" uid="uid://ti4awxfjh8r6" path="res://scripts/enemy/drone_kamikaze.gd" id="1_2hc0j"]
 [ext_resource type="Texture2D" uid="uid://dfaac6w8kblfy" path="res://assets/enemy/kamikaze/mine_drone_exploding.png" id="2_2hc0j"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://c30hnkfqmylsy" path="res://assets/enemy/explosion.png" id="4_uew7q"]
 [ext_resource type="Texture2D" uid="uid://10amda4fnp62" path="res://assets/enemy/kamikaze/mine_drone_idle.png" id="5_k28w1"]
 [ext_resource type="Texture2D" uid="uid://bdy7po0xxnrp1" path="res://assets/enemy/kamikaze/mine_drone_activated.png" id="6_y8b24"]
+[ext_resource type="Script" uid="uid://b2wt5876yigsh" path="res://scripts/itens/drop_item.gd" id="7_22pq4"]
+[ext_resource type="PackedScene" uid="uid://btgem6t5njodn" path="res://scenes/itens/energy_gem.tscn" id="8_17800"]
+[ext_resource type="PackedScene" uid="uid://djjnr6veblc63" path="res://scenes/itens/health_gem.tscn" id="9_1ukf5"]
+[ext_resource type="Texture2D" uid="uid://dmgcogjh3wh8w" path="res://assets/enemy/Shadow.png" id="10_17800"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8b24"]
 atlas = ExtResource("2_2hc0j")
@@ -279,6 +283,17 @@ fill_mode = 1
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DropItem" type="Node2D" parent="."]
+script = ExtResource("7_22pq4")
+item_drop = Array[PackedScene]([ExtResource("8_17800"), ExtResource("9_1ukf5")])
+item_drop_chances = Array[float]([30.0, 30.0, 40.0])
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 15
+z_as_relative = false
+position = Vector2(-1, 4)
+texture = ExtResource("10_17800")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DroneMeleeHitbox" to="." method="_on_drone_melee_hitbox_body_entered"]

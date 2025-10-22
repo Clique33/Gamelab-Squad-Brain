@@ -12,9 +12,13 @@ var last_direction: Vector2 = Vector2.ZERO
 
 var enemy_in_range = false
 
-@onready var hp_hud: Node2D = $"../hp_hud"
+signal emit_health_update(new_health: float)
+signal emit_energy_update(new_energy: float)
+
 @export var health: float = 100.0
+var health_limit: float
 @export var energy: float = 100.0
+var energy_limit: float
 
 var is_dead: bool = false
 
@@ -36,13 +40,18 @@ var knockback_direction: Vector2 = Vector2.ZERO
 
 @export var transformation_limit: float
 @onready var transformation_timer: Timer = $TransformationTimer
-var time_part: float = 0.9
+var time_part: float = 1.0
 
 
 func _ready() -> void:
 	add_to_group("Player")
 	
 	change_to(TYPE_TRANSFORM.HUMAN)
+	
+	health_limit = health
+	
+	energy_limit = energy
+	
 
 func change_to(type_transformation : TYPE_TRANSFORM = TYPE_TRANSFORM.ROBOT) -> void:
 	if type_transformation == TYPE_TRANSFORM.ROBOT:
@@ -90,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	
 	update_animation()
 	
-	uptade_energia()
+	update_energy_transformation()
 	
 	move_and_slide()
 
@@ -138,7 +147,7 @@ func attack_melee(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy"):
 		enemy_in_range  = true
-		print(body.get_scene_file_path())
+		
 		enemy = body
 
 
@@ -151,10 +160,22 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 		attack_timer = 0
 
 
-func update_health(value: int) -> void:
-	health += value
-	
-	hp_hud.hp_bar_update(health)
+func update_health(value: float) -> void:
+	if health <= health_limit and health >= 0.0:
+		if (health + value) > energy_limit:
+			health = health_limit
+			
+			time_part = 1.0
+		elif (health + value) < 0:
+			health = 0.0
+			
+			time_part = 0.0
+		else:
+			health += value
+			
+			time_part += value / 100
+		
+		emit_health_update.emit(health)
 
 
 func die() -> void:
@@ -186,28 +207,46 @@ func apply_knockback(direction_2: Vector2, force: float, knockback_duration: flo
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and transformation_timer.is_stopped():
 			change_to(TYPE_TRANSFORM.ROBOT)
 			
 			attack_basic *= 2
 			
-			transformation_timer.start(transformation_limit)
+			transformation_timer.start(transformation_limit * time_part)
+
+
+func update_energy_transformation(value: float = -10.0) -> void:
+	if type_of_body == TYPE_TRANSFORM.ROBOT:
+		if transformation_timer.time_left + 0.1 <= transformation_limit * (time_part - 0.1):
+			update_energy(value)
+ 
+
+func update_energy(value: float = -10.0) -> void:
+	if energy <= energy_limit and energy >= 0.0:
+		if (energy + value) > energy_limit:
+			energy = energy_limit
+			
+			time_part = 1.0
+		elif (energy + value) < 0:
+			energy = 0.0
+			
+			time_part = 0.0
+		else:
+			energy += value
+			
+			time_part += value / 100
+
+		emit_energy_update.emit(energy)
 
 
 func _on_change_timer_timeout() -> void:
 	change_to(TYPE_TRANSFORM.HUMAN)
 	
+	update_energy()
+	
+	transformation_timer.stop()
+	
 	attack_basic *= 1
-
-
-func uptade_energia(value: int = -10) -> void:
-	if type_of_body == TYPE_TRANSFORM.ROBOT:
-		if transformation_timer.time_left - 0.1 <= transformation_limit * time_part:
-			time_part -= 0.1
-			
-			energy += value
-
-			hp_hud.energy_bar_update(energy)
 
 
 func is_attacking() -> bool:

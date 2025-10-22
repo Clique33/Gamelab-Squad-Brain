@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://mdocp85nn4l6"]
+[gd_scene load_steps=72 format=3 uid="uid://mdocp85nn4l6"]
 
 [ext_resource type="Texture2D" uid="uid://bs2aoytl33ntq" path="res://assets/character/bogan_sprites.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bjm6q18wihdhh" path="res://scripts/player.gd" id="1_g2els"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://flkg1morayxd" path="res://Assets/Player/idle.png" id="4_uorc5"]
 [ext_resource type="Texture2D" uid="uid://dfjxbbk51sxjo" path="res://Assets/Player/run.png" id="5_m061u"]
 [ext_resource type="Texture2D" uid="uid://bkctw85hhktkk" path="res://Assets/Player/effect_player/slash_effect_anim_spritesheet.png" id="5_tj3i7"]
+[ext_resource type="Texture2D" uid="uid://dmgcogjh3wh8w" path="res://assets/enemy/Shadow.png" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
 atlas = ExtResource("1_3vyb7")
@@ -467,7 +468,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j0hjy")
 }],
 "loop": true,
-"name": &"idle_rigth",
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -530,7 +531,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_mk71n")
 }],
 "loop": true,
-"name": &"walk_rigth",
+"name": &"walk_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -699,7 +700,7 @@ tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -736,14 +737,13 @@ transformation_limit = 10.0
 
 [node name="HumanAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fjrip")
-animation = &"walk_up"
+animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.316051
 
 [node name="RobotAnimatedSprite" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_co1kl")
-animation = &"die"
+animation = &"idle_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -786,6 +786,14 @@ libraries = {
 }
 
 [node name="TransformationTimer" type="Timer" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-1, -2.66667)
+scale = Vector2(0.916667, 0.916667)
+texture = ExtResource("8_smehm")
 
 [connection signal="animation_finished" from="HumanAnimatedSprite" to="." method="_on_human_animated_sprite_animation_finished"]
 [connection signal="animation_finished" from="RobotAnimatedSprite" to="." method="_on_robot_animated_sprite_animation_finished"]

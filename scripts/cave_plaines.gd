@@ -8,10 +8,10 @@ var change_scene: bool = false
 
 
 func _ready() -> void:		
-	hp_hud.hp_bar_update(Global.health)
+	hp_hud._on_health_update(Global.health)
 	player.health = Global.health
 	
-	hp_hud.energy_bar_update(Global.energy)
+	hp_hud._on_energy_update(Global.energy)
 	player.energy = Global.energy
 
 func _on_world_plaines_body_entered(body: Node2D) -> void:
